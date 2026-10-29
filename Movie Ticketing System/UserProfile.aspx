@@ -6,13 +6,6 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <style>
-        body {
-            background-image: url(Images/CinameBackground1.jpg);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
         .container {
             padding-top: 30px;
             padding-bottom: 50px;
@@ -21,9 +14,10 @@
         #sideBar {
             padding: 15px;
             padding-left: 15px;
-            border-radius: 10px;
-            background-color: #202020;
-            color: gray;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            background-color: var(--surface);
+            color: var(--muted);
         }
 
 
@@ -54,7 +48,7 @@
         .sideBar-Name-Container {
             width: 100%;
             text-align: center;
-            border-color: black;
+            border-color: var(--line);
             border-bottom: solid;
             border-bottom-width: 2px;
             margin-bottom: 10px;
@@ -126,17 +120,33 @@
         }
 
         .panel.panel-info {
-            border-color: #353535;
+            border-color: var(--line);
+            background-color: var(--surface);
         }
 
             .panel.panel-info > .panel-heading {
-                background-color: #353535;
-                color: white;
+                border-color: var(--line);
+                background-color: var(--surface-raised);
+                color: var(--text);
             }
 
         .panel .panel-body {
-            background-color: whitesmoke;
+            background-color: var(--surface);
         }
+
+        .btn-primary,
+        .btn-primary:focus {
+            border-color: var(--accent);
+            background-color: var(--accent);
+            color: var(--on-accent);
+        }
+
+            .btn-primary:hover,
+            .btn-primary:active {
+                border-color: var(--accent-hover);
+                background-color: var(--accent-hover);
+                color: var(--on-accent);
+            }
 
         #profile {
             padding: 8px;
@@ -156,8 +166,10 @@
 
         .txtBox {
             padding: 8px;
-            border: 1px solid #ccc;
+            border: 1px solid var(--line);
             border-radius: 4px;
+            background-color: var(--surface-raised);
+            color: var(--text);
         }
 
         #change-password .btn-lg {
@@ -182,7 +194,7 @@
         }
 
         .card {
-            background: linear-gradient(to bottom, #3dcee8 0%, #3dcee8 26%, #ecedef 26%, #ecedef 100%);
+            background: linear-gradient(to bottom, #d9a441 0%, #d9a441 26%, #ecedef 26%, #ecedef 100%);
             height: 20em;
             float: left;
             position: relative;
@@ -317,7 +329,7 @@
 
             .eye::before {
                 width: 1em;
-                background: #3dcee8;
+                background: #d9a441;
                 height: 1em;
                 z-index: 2;
                 left: 8px;
@@ -339,7 +351,7 @@
         }
 
             .number h3 {
-                color: #3dcee8;
+                color: #d9a441;
                 margin: 0.9em 0 0 0;
                 font-size: 2.5em;
             }
@@ -573,8 +585,8 @@
                             </div>
                             <div class="panel-body">
                                 Do you really want to logout?
-                                <asp:Button ID="YesBtn" runat="server" Text="Yes" CssClass="btn btn-danger" OnClick="YesBtn_Click" />
-                                <asp:Button ID="NoBtn"  runat="server" Text="No" CssClass="btn btn-success" />
+                                <asp:Button ID="YesBtn" runat="server" Text="Yes" CssClass="btn btn-primary" OnClick="YesBtn_Click" />
+                                <asp:Button ID="NoBtn"  runat="server" Text="No" CssClass="btn btn-default" />
                             </div>
                         </div>
                     </div>

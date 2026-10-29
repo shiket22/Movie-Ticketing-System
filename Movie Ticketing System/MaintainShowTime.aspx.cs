@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -9,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Movie_Ticketing_System.admin
 {
-    public partial class MaintainShowTime : System.Web.UI.Page
+    public partial class MaintainShowTime : AdminPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -73,7 +74,7 @@ namespace Movie_Ticketing_System.admin
         {
             ImageButton cmdDelete = sender as ImageButton;
             String Id = cmdDelete.Attributes["MovieID"].ToString();
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MovieTicketingSystem.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             con.Open();
 
             string strDelete = "UPDATE Movie SET ShowTime = NULL WHERE Id = @Id";

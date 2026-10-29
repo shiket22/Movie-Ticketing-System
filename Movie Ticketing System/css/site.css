@@ -1,0 +1,327 @@
+/* Shared look for the customer pages. The master page links it after each page's own styles. */
+
+:root {
+    --bg: #141414;
+    --surface: #1e1e1e;
+    --surface-raised: #282828;
+    --line: #353535;
+    --text: #ece9e4;
+    --muted: #a39f98;
+    --accent: #d9a441;
+    --accent-hover: #e8b65a;
+    --on-accent: #1b1b1b;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4 {
+    font-family: inherit;
+}
+
+a {
+    color: var(--accent);
+}
+
+/* Header */
+
+.site-header {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 10px 32px;
+    background: #0b0b0b;
+    border-bottom: 1px solid var(--line);
+}
+
+    .site-header .brand img {
+        display: block;
+        height: 52px;
+        width: auto;
+    }
+
+.site-nav {
+    display: flex;
+    gap: 26px;
+    flex: 1;
+}
+
+    .site-nav a {
+        color: var(--text);
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+        .site-nav a:hover {
+            color: var(--accent);
+        }
+
+.site-search {
+    display: flex;
+    margin: 0;
+}
+
+    .site-search input {
+        width: 220px;
+        padding: 7px 10px;
+        border: 1px solid var(--line);
+        border-right: none;
+        border-radius: 4px 0 0 4px;
+        background: var(--surface);
+        color: var(--text);
+        font: inherit;
+        font-size: 14px;
+    }
+
+    .site-search button {
+        padding: 0 11px;
+        border: 1px solid var(--line);
+        border-radius: 0 4px 4px 0;
+        background: var(--surface-raised);
+        color: var(--text);
+        cursor: pointer;
+    }
+
+.account-link {
+    padding: 7px 16px;
+    border-radius: 4px;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+    .account-link:hover {
+        background: var(--accent-hover);
+    }
+
+.content {
+    flex: 1;
+}
+
+.crumbs {
+    padding: 12px 32px 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+    .crumbs a {
+        color: var(--muted);
+    }
+
+/* Footer */
+
+.site-footer {
+    margin-top: 72px;
+    padding: 28px 32px;
+    border-top: 1px solid var(--line);
+    background: #0b0b0b;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+    .site-footer .footer-inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px 32px;
+        max-width: 1160px;
+        margin: 0 auto;
+    }
+
+    .site-footer p {
+        margin: 0;
+    }
+
+    .site-footer nav a {
+        margin-right: 20px;
+        color: var(--muted);
+        text-decoration: none;
+    }
+
+        .site-footer nav a:hover {
+            color: var(--text);
+        }
+
+/* Page building blocks */
+
+.page {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 24px 32px 0;
+}
+
+.page-title {
+    margin: 8px 0 24px;
+    color: var(--text);
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.section-title {
+    margin: 40px 0 20px;
+    color: var(--text);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.tabs {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+}
+
+    .tabs a {
+        margin-bottom: -1px;
+        padding: 10px 0;
+        border-bottom: 2px solid transparent;
+        color: var(--muted);
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+        .tabs a:hover {
+            color: var(--text);
+        }
+
+        .tabs a.active {
+            border-bottom-color: var(--accent);
+            color: var(--text);
+        }
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 36px 28px;
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;
+}
+
+    .movie-card .poster {
+        display: block;
+        width: 100%;
+        aspect-ratio: 2 / 3;
+        object-fit: cover;
+        border-radius: 4px;
+        background: var(--surface);
+    }
+
+    .movie-card h3 {
+        margin: 12px 0 12px;
+        color: var(--text);
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    .movie-card .btn {
+        align-self: flex-start;
+        margin-top: auto;
+    }
+
+.btn {
+    display: inline-block;
+    padding: 9px 18px;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    background: var(--accent);
+    color: var(--on-accent);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    .btn:hover {
+        border-color: var(--accent-hover);
+        background: var(--accent-hover);
+    }
+
+.btn-outline {
+    border-color: var(--line);
+    background: transparent;
+    color: var(--text);
+}
+
+    .btn-outline:hover {
+        border-color: var(--muted);
+        background: var(--surface-raised);
+    }
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+    .data-table th {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        font-weight: 600;
+        text-align: left;
+    }
+
+    .data-table td {
+        padding: 12px;
+        border-bottom: 1px solid var(--line);
+    }
+
+.empty-note {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: var(--muted);
+}
+
+@media (max-width: 860px) {
+    .site-header {
+        flex-wrap: wrap;
+        gap: 12px 20px;
+        padding: 10px 16px;
+    }
+
+    .site-nav {
+        order: 3;
+        width: 100%;
+        flex: none;
+        overflow-x: auto;
+    }
+
+    .site-search {
+        flex: 1;
+    }
+
+        .site-search input {
+            width: 100%;
+            min-width: 0;
+        }
+
+    .crumbs,
+    .page,
+    .site-footer {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 28px 16px;
+    }
+}

@@ -11,7 +11,7 @@ namespace Movie_Ticketing_System
 {
 
 
-    public partial class WebForm1
+    public partial class ErrorPage
     {
     }
 }

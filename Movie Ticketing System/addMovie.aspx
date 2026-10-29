@@ -5,7 +5,7 @@
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <title>Alpha - Add Product</title>
+ <title>Add Movie</title>
  <link rel="stylesheet" href="https://fonts.google.com/specimen/Roboto">
  <link rel="stylesheet" href="https://technext.github.io/product-admin/css/fontawesome.min.css">
  <link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css">
@@ -24,7 +24,7 @@
         font-size: 18px;
         line-height: 1.7;
         padding: 0;
-        background-image: url('../images/cinema.png');
+        background-color: #f2f2f2;
         overflow-x: hidden;
     }
 
@@ -362,22 +362,22 @@
 
         <div class="auto-style1">
             <p style="text-align:right;font-size:20px;margin-top:0px;margin-bottom:0px;transform: translate(-18%);"><input type="submit" id="btnBack" class="btn btn-success" value="Back" style="font-weight:bold;" formaction="../MaintainMovie.aspx" /></p>
-    <div class="tm-bg-primary-dark tm-block tm-block-h-auto" style="background-image: url('../images/background1.jpg'); background-repeat: no-repeat; background-size: cover; border-radius: 8%; box-shadow: 5px 10px 18px #888888;">
+    <div class="tm-bg-primary-dark tm-block tm-block-h-auto" style="background: #fff; border: 1px solid #ddd; border-radius: 8px;">
         <div class="auto-style12">
     <div class="auto-style2">
-        <h2 class="tm-block-title d-inline-block" style="font-size: 30px; font-weight: bold; color: MidnightBlue; text-shadow: 2px 2px 8px white">Add Product</h2>
+        <h2 class="tm-block-title d-inline-block" style="font-size: 30px; font-weight: bold; color: #222">Add Movie</h2>
     </div>
 
             <br />
             <table class="auto-style5">
                 <tr>
                     <td class="auto-style4">
-                        <label style="color: darkblue;">ID</label><br />
+                        <label style="color: #444;">ID</label><br />
                         <asp:TextBox ID="txtMovieId" runat="server" Height="36px" Width="185px" placeholder="*** e.g.:1" class="auto-style7 form-control" ReadOnly="true" ToolTip="Id is not allowed to change"></asp:TextBox>
                     </td>
                <td class="auto-style500">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
                     <td class="auto-style10">
-                        <label style="color: darkblue;" class="auto-style11">
+                        <label style="color: #444;" class="auto-style11">
                         Movie Name</label><br />
                         <asp:TextBox ID="txtMovieName" runat="server" Height="36px" Width="193px" class="auto-style7 form-control"></asp:TextBox>
                         <br />
@@ -385,7 +385,7 @@
                     </td>
                     <td class="auto-style501">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
                     <td class="auto-style14">
-                        <label style="color: darkblue;" class="auto-style101">
+                        <label style="color: #444;" class="auto-style101">
                         <br />
                         Release Date</label><br />
                         <asp:TextBox ID="txtReleaseDate" runat="server" Height="36px" Width="186px" class="auto-style102 form-control"></asp:TextBox>
@@ -429,7 +429,7 @@
                     </tr>
                 <tr>
                     <td colspan="3">
-                        <label style="color: darkblue;">Language</label><br />
+                        <label style="color: #444;">Language</label><br />
                         <asp:DropDownList ID="LanguageList" runat="server" Height="45px" Width="400px" class="auto-style7 form-control"  Style="background-color: white; font-size: 13px; color: black;">
                             <asp:ListItem>English</asp:ListItem>
                             <asp:ListItem>Malay</asp:ListItem>
@@ -439,7 +439,7 @@
                 </tr>
                 <tr>
                     <td colspan="3" class="auto-style21">
-                        <label style="color: darkblue;">Duration Time</label><br />
+                        <label style="color: #444;">Duration Time</label><br />
                         <asp:TextBox ID="txtDuration" placeholder="* e.g.:1 hours 15 minutes" class="form-control" runat="server" Width="400px"></asp:TextBox>
 
                         <br />
@@ -452,7 +452,7 @@
                     </td>
                    
                     <td colspan="2" class="auto-style212">
-                        <label style="color: darkblue;">Genre</label><br />
+                        <label style="color: #444;">Genre</label><br />
                         <asp:DropDownList ID="GenreList"  Width="150px" runat="server" CssClass="auto-style215">
                             <asp:ListItem>Action</asp:ListItem>
                             <asp:ListItem>Horror</asp:ListItem>
@@ -465,7 +465,7 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <label style="color: darkblue;">
+                        <label style="color: #444;">
                             Description</label><br />
                         <asp:TextBox ID="txtDescription" runat="server" class="form-control" Rows="3" TextMode="MultiLine" Width="400px"></asp:TextBox>
 

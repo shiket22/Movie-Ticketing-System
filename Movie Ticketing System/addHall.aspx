@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Alpha - Add Product</title>
+    <title>Add Hall</title>
     <link rel="stylesheet" href="https://fonts.google.com/specimen/Roboto">
     <link rel="stylesheet" href="https://technext.github.io/product-admin/css/fontawesome.min.css">
     <link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css">
@@ -23,7 +23,7 @@
             font-size: 18px;
             line-height: 1.7;
             padding: 0;
-            background-image: url('../images/cinema.png');
+            background-color: #f2f2f2;
             overflow-x: hidden;
         }
 
@@ -44,14 +44,14 @@
 
         .auto-style2 {
             position: relative;
-            width: 10%;
+            width: 100%;
             min-height: 1px;
             -webkit-box-flex: 0;
             -ms-flex: 0 0 100%;
             flex: 0 0 100%;
             max-width: 100%;
-            left: 694px;
             top: 30px;
+            text-align: center;
             padding-left: 30px;
             padding-right: 15px;
         }
@@ -328,26 +328,26 @@
         <div class="auto-style3">
             <input type="submit" id="btnBack" class="btn btn-success" value="Back" style="font-weight: bold;" formaction="../MaintainHall.aspx" />
             <div class="auto-style1">
-                <div class="tm-bg-primary-dark tm-block tm-block-h-auto" style="background-image: url('../images/background1.jpg'); background-repeat: no-repeat; background-size: cover; border-radius: 8%; box-shadow: 5px 10px 18px #888888;">
+                <div class="tm-bg-primary-dark tm-block tm-block-h-auto" style="background: #fff; border: 1px solid #ddd; border-radius: 8px;">
                     <div class="auto-style12">
                         <div class="auto-style2">
-                            <h2 class="tm-block-title d-inline-block" style="font-size: 30px; font-weight: bold; color: MidnightBlue; text-shadow: 2px 2px 8px white">Add Hall</h2>
+                            <h2 class="tm-block-title d-inline-block" style="font-size: 30px; font-weight: bold; color: #222">Add Hall</h2>
                         </div>
                         <br />
                         <table class="auto-style5">
                             <tr>
                                 <td class="auto-style4">
-                                    <label style="color: darkblue;">ID</label><br />
+                                    <label style="color: #444;">ID</label><br />
                                     <asp:TextBox ID="txtHallId" runat="server" Height="36px" Width="190px" placeholder="*** e.g.:1"></asp:TextBox> <br/>
                                 </td>
                                 <td class="auto-style10">
-                                    <label style="color: darkblue;">Hall Name</label><br />
+                                    <label style="color: #444;">Hall Name</label><br />
                                     <asp:TextBox ID="txtHallName" runat="server" Height="36px" Width="190px"></asp:TextBox>
                                     <br />
                                     <asp:RequiredFieldValidator ID="requiredName" runat="server" ControlToValidate="txtHallName" Display="Dynamic" ErrorMessage="*Hall Name is required" ForeColor="Red" Font-Size="8pt"></asp:RequiredFieldValidator>
                                 </td>
                                 <td class="auto-style14">
-                                    <label style="color: darkblue;">Location</label><br />
+                                    <label style="color: #444;">Location</label><br />
                                     <asp:TextBox ID="txtLocation" runat="server" Height="36px" Width="190px"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredLocation" runat="server" ControlToValidate="txtLocation" Display="Dynamic" ErrorMessage="*Location is required" Font-Size="8pt" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </td>

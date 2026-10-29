@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Movie_Ticketing_System
 {
-    public partial class addHall : System.Web.UI.Page
+    public partial class addHall : AdminPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,7 +19,7 @@ namespace Movie_Ticketing_System
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MovieTicketingSystem.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 
             {
                 string query = "INSERT INTO MovieHall (MovieHallId, Name, Location) VALUES (@MovieHallId, @Name, @Location)";
@@ -51,7 +51,7 @@ namespace Movie_Ticketing_System
 
         private void InsertSeats(string movieHallId)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MovieTicketingSystem.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             {
                 con.Open();
                 string maxSeatId = GetMaxSeatId();
@@ -88,7 +88,7 @@ namespace Movie_Ticketing_System
 
         private string GetMaxSeatId()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MovieTicketingSystem.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             {
                 con.Open();
                 string query = "SELECT MAX(SeatId) FROM Seats";

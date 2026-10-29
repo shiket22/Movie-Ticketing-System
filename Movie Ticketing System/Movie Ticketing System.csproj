@@ -80,13 +80,12 @@
     <Content Include="BookingMovie.aspx" />
     <Content Include="css\admin.css" />
     <Content Include="css\style.css" />
+    <Content Include="css\site.css" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="FnB.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Images\add.png" />
     <Content Include="Images\alien.png" />
-    <Content Include="Images\android-logo.png" />
-    <Content Include="Images\apple-logo.png" />
     <Content Include="Images\article20.png" />
     <Content Include="Images\Avatar.jpg" />
     <Content Include="Images\background1.jpg" />
@@ -101,18 +100,15 @@
     <Content Include="Images\despicableme.png" />
     <Content Include="Images\Dune.png" />
     <Content Include="Images\Extinction.jpeg" />
-    <Content Include="Images\Facebook-logo.png" />
     <Content Include="Images\fantastic4.png" />
     <Content Include="Images\Fighter.jpeg" />
     <Content Include="Images\Garfield.png" />
     <Content Include="Images\Ghostbuster.png" />
     <Content Include="Images\GodzillaXKong.png" />
     <Content Include="Images\GodzillaxKongTheNewEmpire.png" />
-    <Content Include="Images\huawei-logo.png" />
     <Content Include="Images\if.png" />
     <Content Include="Images\Imaginary.png" />
     <Content Include="Images\insideout.png" />
-    <Content Include="Images\Instagram-logo.png" />
     <Content Include="Images\ironman.jpg" />
     <Content Include="Images\KungFuPanda.png" />
     <Content Include="Images\minus.png" />
@@ -127,7 +123,6 @@
     <Content Include="Images\SSC Logo.png" />
     <Content Include="Images\tarot.png" />
     <Content Include="Images\Thank.png" />
-    <Content Include="Images\twitter-logo.png" />
     <Content Include="Images\updateIcon.png" />
     <Content Include="Images\wildrobot.png" />
     <Content Include="Images\YOLO.png" />
@@ -282,6 +277,7 @@
     <Compile Include="OrderCart.aspx.designer.cs">
       <DependentUpon>OrderCart.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminPage.cs" />
     <Compile Include="PasswordHasher.cs" />
     <Compile Include="Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>

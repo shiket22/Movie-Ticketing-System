@@ -26,6 +26,7 @@ C#, ASP.NET Web Forms (.NET Framework 4.7.2), SQL Server LocalDB, HTML, CSS, Jav
 - Every SQL statement uses parameters, so user input can't change a query.
 - Passwords are hashed with PBKDF2-HMAC-SHA256 (210,000 iterations, a random salt per password; see
   `PasswordHasher.cs`). The original coursework stored them as plain text; hashing was added in 2026.
+- The admin pages inherit from `AdminPage`, which sends anyone who isn't logged in as an admin to the login page.
 - The payment page is a mock-up and saves the card number as typed. Never enter a real card number.
 
 ## Running it

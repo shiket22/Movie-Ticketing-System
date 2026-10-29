@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -48,7 +49,7 @@ namespace Movie_Ticketing_System
         }
         private void LoadMovieDetails(int movieID)
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MovieTicketingSystem.mdf;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -65,7 +66,7 @@ namespace Movie_Ticketing_System
                     lblMovieName.Text = reader["MovieName"].ToString();
                     lblDescription.Text = reader["Description"].ToString();
                     lblReleaseDate.Text = "Release Date: " + ((DateTime)reader["ReleaseDate"]).ToString("MMMM dd, yyyy");
-                    lblDuration.Text = "Duration: " + reader["DurationTime"].ToString() + " minutes";
+                    lblDuration.Text = "Duration: " + reader["DurationTime"].ToString();
                     lblGenre.Text = "Genre: " + reader["Genre"].ToString();
                     lblLanguage.Text = "Language: " + reader["Language"].ToString();
                 }

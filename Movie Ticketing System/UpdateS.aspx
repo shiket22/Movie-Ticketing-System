@@ -12,7 +12,7 @@
     font-size: 18px;
     line-height: 1.7;
     padding: 0;
-   background-image: url('../images/cinema.png');
+   background-color: #f2f2f2;
     overflow-x: hidden;
 }
 

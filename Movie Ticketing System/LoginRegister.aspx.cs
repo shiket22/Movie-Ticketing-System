@@ -22,9 +22,19 @@ namespace Movie_Ticketing_System
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["logout"] != null)
+            {
+                Session.Clear();
+                Response.Redirect("LoginRegister.aspx");
+            }
+
             if (Session["UserId"] != null)
             {
                 Response.Redirect("UserProfile.aspx");
+            }
+            else if (Session["Role"] as string == "Admin")
+            {
+                Response.Redirect("~/MaintainHall.aspx");
             }
         }
 
@@ -51,6 +61,7 @@ namespace Movie_Ticketing_System
                     }
                     else if (userRole == "Admin")
                     {
+                        Session["Role"] = "Admin";
                         Response.Redirect("~/MaintainHall.aspx");
                     }
                 }

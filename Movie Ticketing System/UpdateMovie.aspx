@@ -8,7 +8,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Alpha - Update Product</title>
+<title>Update Movie</title>
 <link rel="stylesheet" href="https://fonts.google.com/specimen/Roboto">
 <link rel="stylesheet" href="https://technext.github.io/product-admin/css/fontawesome.min.css">
  <link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css">
@@ -23,10 +23,7 @@
         body {
             font-family: Georgia, sans-serif;
             font-size: 18px;
-            background-color: #eeeeee;
-            background-image: url('../images/cinema.png');
-            background-repeat: no-repeat;
-            background-size: cover;
+            background-color: #f2f2f2;
         }
 
         .file-upload {
@@ -304,11 +301,9 @@
         }
 
         .first {
-            background-image: url('../images/background1.jpg');
-            background-repeat: no-repeat;
-            background-size: 3000px 2000px;
-            border-radius: 8%;
-            box-shadow: 5px 10px 18px #888888;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             position: relative;
             width: 85%;
             min-height: 1px;
@@ -350,7 +345,7 @@
 
                         <div class="row">
                             <div class="col-12">
-                                <h2 class="tm-block-title d-inline-block" style="font-size:30px;font-weight:bold;color:MidnightBlue;text-shadow: 2px 2px 8px skyblue"></h2>
+                                <h2 class="tm-block-title d-inline-block" style="font-size:30px;font-weight:bold;color: #222"></h2>
                             </div>
                         </div>
                         <div class="row">
@@ -361,12 +356,12 @@
                                         </td>
                                     
                                     <td class="auto-style39">
-                                        <label style="color: darkblue;" class="auto-style11">Movie ID</label><br />
+                                        <label style="color: #444;" class="auto-style11">Movie ID</label><br />
                                         <asp:TextBox ID="txtId" runat="server" Height="36px" Width="185px" class="auto-style7 form-control" ReadOnly="true" ToolTip="Id is not allowed to change"></asp:TextBox>
                                     </td>
                                     <td class="auto-style40">
                                         &nbsp;<br />
-                                        <label style="color: darkblue;" class="auto-style11">
+                                        <label style="color: #444;" class="auto-style11">
                                         <br />
                                         Release Date</label><br />
                                         <asp:TextBox ID="txtDate" runat="server"  Height="36px" Width="185px"  class="auto-style7 form-control"></asp:TextBox>
@@ -377,19 +372,19 @@
                                         <asp:RequiredFieldValidator ID="RequiredDate" runat="server" ControlToValidate="txtDate" Display="Dynamic" ErrorMessage="*Release Date is required" Font-Size="8pt" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </td>
                                     <td class="auto-style11">
-                                        &nbsp;<label style="color: darkblue;" class="auto-style11" "">DurationTime</label><br />
+                                        &nbsp;<label style="color: #444;" class="auto-style11" "">DurationTime</label><br />
                                         <asp:TextBox ID="txtTime" runat="server" Height="36px" Width="280px" class="auto-style7 form-control"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="auto-style18">
-                                       <label style="color: darkblue;" class="auto-style11">Movie Name</label><br />
+                                       <label style="color: #444;" class="auto-style11">Movie Name</label><br />
                                         <asp:TextBox ID="txtMovieName" runat="server" Height="36px" Width="185px"  class="auto-style7 form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredName" runat="server" ControlToValidate="txtMovieName" Display="Dynamic" ErrorMessage="*Movie Name is required" Font-Size="8pt" ForeColor="Red"></asp:RequiredFieldValidator>
                                         <br />
                                     </td>
                                     <td class="auto-style9">
-                                        <label style="color: darkblue;" class="auto-style11">Genre</label><br />
+                                        <label style="color: #444;" class="auto-style11">Genre</label><br />
                                      <asp:DropDownList ID="GenreList" runat="server" Height="45px" Width="200px" class="auto-style7 form-control" Style="background-color: white; font-size: 13px; color: black;">
                                             <asp:ListItem>Advanture</asp:ListItem>
                                             <asp:ListItem>Action</asp:ListItem>
@@ -398,7 +393,7 @@
                                         <br />
                                     </td>
                                     <td class="auto-style11" colspan="2">
-                                        <label style="color: darkblue;" class="auto-style111">Language</label><br />
+                                        <label style="color: #444;" class="auto-style111">Language</label><br />
                                         <asp:DropDownList ID="LanguageList" runat="server" Height="45px" Width="200px" class="auto-style7 form-control" Style="background-color: white; font-size: 13px; color: black;">
                                             <asp:ListItem>English</asp:ListItem>
                                             <asp:ListItem>Malay</asp:ListItem>
@@ -411,7 +406,7 @@
                                        </td>
 
                                     <td class="auto-style23" colspan="2">
-                                        <label style="color: darkblue;" class="auto-style21">Description</label><br />
+                                        <label style="color: #444;" class="auto-style21">Description</label><br />
                                         <asp:TextBox ID="txtDescription" runat="server" Rows="3" class="form-control" TextMode="MultiLine" CssClass="auto-style37" Width="460px"></asp:TextBox>
 
                                         <br />
@@ -424,7 +419,7 @@
                                     <td class="auto-style16"></td>
                                     <td class="auto-style36"></td>
                                     <td colspan="2" class="auto-style29">
-                                        <label style="color: darkblue;">Select an image
+                                        <label style="color: #444;">Select an image
                                         </label>
                                         <asp:FileUpload ID="imgUpload" type="file" accept="image/*" class="form-control" runat="server" />
                                         <br />
@@ -436,7 +431,7 @@
                                     <td class="auto-style35">&nbsp;</td>
                                     <td class="auto-style36"></td>
                                     <td colspan="2">
-                                        <asp:Button ID="btnUpdate" class="btn btn-primary btn-block text-uppercase" runat="server" Text="Update Product Now" style="width: 99%; margin-left: 42" OnClick="btnUpdate_Click" /><br />
+                                        <asp:Button ID="btnUpdate" class="btn btn-primary btn-block text-uppercase" runat="server" Text="Update Movie" style="width: 99%; margin-left: 42" OnClick="btnUpdate_Click" /><br />
                                     </td>
                                 </tr>
                                 </table>

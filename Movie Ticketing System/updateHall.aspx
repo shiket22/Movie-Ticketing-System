@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Alpha - Update Product</title>
+    <title>Update Hall</title>
     <link rel="stylesheet" href="https://fonts.google.com/specimen/Roboto" />
     <link rel="stylesheet" href="https://technext.github.io/product-admin/css/fontawesome.min.css" />
     <link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css" />
@@ -23,10 +23,7 @@
         body {
             font-family: Georgia, sans-serif;
             font-size: 18px;
-            background-color: #eeeeee;
-            background-image: url('../images/cinema.png');
-            background-repeat: no-repeat;
-            background-size: cover;
+            background-color: #f2f2f2;
         }
 
         .file-upload {
@@ -246,7 +243,7 @@
         }
 
         .auto-style11 {
-            color: darkblue;
+            color: #444;
             width: 30px;
             height: 19px;
             margin-left: 30%;
@@ -262,11 +259,9 @@
         }
 
         .first {
-            background-image: url('../images/background1.jpg');
-            background-repeat: no-repeat;
-            background-size: 3000px 2000px;
-            border-radius: 8%;
-            box-shadow: 5px 10px 18px #888888;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             position: relative;
             width: 85%;
             min-height: 1px;
@@ -322,7 +317,7 @@
 
                         <div class="row">
                             <div class="col-12">
-                                <h2 class="tm-block-title d-inline-block" style="font-size: 30px; font-weight: bold; color: MidnightBlue; text-shadow: 2px 2px 8px skyblue"></h2>
+                                <h2 class="tm-block-title d-inline-block" style="font-size: 30px; font-weight: bold; color: #222"></h2>
                             </div>
                         </div>
                         <div class="row">
@@ -352,7 +347,7 @@
                                 <br />
                             <br />
                             <div class="btn">
-                            <asp:Button ID="btnUpdate" class="btn btn-primary btn-block text-uppercase" runat="server" Text="Update Product Now" OnClick="btnUpdate_Click"/><br />
+                            <asp:Button ID="btnUpdate" class="btn btn-primary btn-block text-uppercase" runat="server" Text="Update Hall Now" OnClick="btnUpdate_Click"/><br />
                             <br />
                                 </div>
                         </div>

@@ -11,7 +11,17 @@ namespace Movie_Ticketing_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // The header shows one account link, depending on who is logged in
+            if (Session["UserId"] != null)
+            {
+                accountLink.InnerText = "Profile";
+                accountLink.HRef = "~/UserProfile.aspx";
+            }
+            else if (Session["Role"] as string == "Admin")
+            {
+                accountLink.InnerText = "Admin";
+                accountLink.HRef = "~/MaintainHall.aspx";
+            }
         }
     }
 }

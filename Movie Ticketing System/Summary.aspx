@@ -1,13 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MovieTicketingSystem.Master" AutoEventWireup="true" CodeBehind="Summary.aspx.cs" Inherits="Movie_Ticketing_System.Summary" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        body {
-            background-image: url(Images/CinameBackground1.jpg);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
         .summary-container {
             width: 80%;
             padding: 50px;

@@ -2,97 +2,75 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        body {
-            background-image: url(Images/CinameBackground1.jpg);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+        .movie-detail {
+            display: flex;
+            gap: 48px;
+            align-items: flex-start;
         }
 
-        .title {
-            color: whitesmoke;
-            text-align: center;
-            font-weight: bold;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 40px;
-        }
-
-        .left {
-            width: 50%;
-            position: relative;
-        }
-
-        .movieDesc {
-            border-bottom: 1px solid #E1E8EE;
-            margin-bottom: 20px;
-        }
-
-            .movieDesc p {
-                font-size: 20px;
-                color: white;
-                font-weight: 300;
-                line-height: 24px;
+            .movie-detail .movieImage {
+                width: 300px;
+                flex-shrink: 0;
+                border-radius: 4px;
             }
 
-            .movieDesc h2 {
-                color: white;
-                font-weight: bold;
-                font-family: sans-serif;
-                font-size: 30px;
-            }
-
-            .movieDesc h4 {
-                color: white;
-                font-weight: bold;
-                font-family: 'Times New Roman', Times, serif;
-                font-size: 24px;
-            }
-
-        .desc {
-            width: 1000px;
+        .movie-info h1 {
+            margin: 0 0 12px;
+            font-size: 32px;
+            font-weight: 600;
         }
 
-        .picture {
-            position: absolute;
-            left: 8%;
-            right: 31px;
-            top: 100px;
+        .movie-info .description {
+            display: block;
+            max-width: 640px;
+            margin-bottom: 24px;
+            color: #d6d2cc;
+            font-size: 17px;
         }
 
-        .movieDetail {
-            width: 70%;
-            margin-left: 504px;
-            margin-top: 170px;
-            margin-bottom: 200px;
+        .facts {
+            margin: 0 0 28px;
+            padding: 16px 0 0;
+            border-top: 1px solid var(--line);
+            list-style: none;
+            color: var(--muted);
+        }
+
+            .facts li {
+                margin-bottom: 6px;
+            }
+
+        @media (max-width: 700px) {
+            .movie-detail {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+                .movie-detail .movieImage {
+                    width: 220px;
+                }
         }
     </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
-        <div>
-            <h1 class="title">Movie Details</h1>
-        </div>
-
-        <div class="left">
-            <div class="picture">
-                <asp:Image ID="movieImage" runat="server" CssClass="movieImage" />
-            </div>
-        </div>
-
-        <div class="movieDetail">
-            <div class="movieDesc">
-                <h2>
-                    <asp:Label ID="lblMovieName" runat="server" CssClass="movieName" /></h2>
-                <h4 class="desc">
-                    <asp:Label ID="lblDescription" runat="server" CssClass="description" /></h4>
-                <p>
-                    <asp:Label ID="lblReleaseDate" runat="server" /></p>
-                <p>
-                    <asp:Label ID="lblDuration" runat="server" /></p>
-                <p>
-                    <asp:Label ID="lblGenre" runat="server" /></p>
-                <p>
-                    <asp:Label ID="lblLanguage" runat="server" /></p>
+        <div class="page movie-detail">
+            <asp:Image ID="movieImage" runat="server" CssClass="movieImage" />
+            <div class="movie-info">
+                <h1>
+                    <asp:Label ID="lblMovieName" runat="server" CssClass="movieName" /></h1>
+                <asp:Label ID="lblDescription" runat="server" CssClass="description" />
+                <ul class="facts">
+                    <li>
+                        <asp:Label ID="lblReleaseDate" runat="server" /></li>
+                    <li>
+                        <asp:Label ID="lblDuration" runat="server" /></li>
+                    <li>
+                        <asp:Label ID="lblGenre" runat="server" /></li>
+                    <li>
+                        <asp:Label ID="lblLanguage" runat="server" /></li>
+                </ul>
             </div>
         </div>
     </form>

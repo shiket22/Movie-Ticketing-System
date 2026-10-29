@@ -40,7 +40,7 @@
                 </div>
         <div class="top_menu">
             <div class="home_link">
-                <a href="#">
+                <a href="LoginRegister.aspx?logout=1">
                     <span class="icon1"></span>
                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     <span>Log Out</span>
@@ -103,30 +103,17 @@
 
       </div>
 
-        <div style="background: #f5f5f5;">
-        <div class="header">
-            <section class="hero-wrap hero-wrap-2" style="height:70%;background:url('../Images/SSC Logo.png');background-size:320px;box-shadow: inset 0 0 0 50vw rgba(0,0,0,0.5);background-attachment: fixed;" data-stellar-background-ratio="0.5">
-
-                <div class="container">
-                    <h1 style="font-size:65px;text-align:center;margin-top:15%;color:white;text-shadow: 1px 1px 2px white, 0 0 25px blue, 0 0 5px darkblue;
-                        font-weight: bold;">Maintain Hall</h1>
-                </div>
-                <br/><br/><br/><br/><br/><br/><br/>
-            </section>
-            <div style="background-color:darkgray;box-shadow: inset 0 0 0 50vw rgba(0,0,0,0.5);">
-            <p></p>
-        </div>
-        </div>
+        <div style="background: #f5f5f5; padding: 96px 24px 48px 274px;">
 
             <form id="form1" runat="server">
-            <div class="container-xl content" style="box-shadow: 5px 5px 5px 5px #888888;border-radius:2%;">
+            <div class="container-xl content">
                 <div class="auto-style4">
                     <div class="table-wrapper">
                         <div class="table-title">
                             <div class="row">
-                                <div class="col-sm-6"><h2 style="color:white;text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"><b>Maintain Hall</b></h2></div>
+                                <div class="col-sm-6"><h2><b>Maintain Hall</b></h2></div>
                                 <div class="col-sm-6">
-                                    <asp:Button ID="btnAdd" class="btn btn-success" style="cursor: cell;" runat="server" Text="Add New Hall" CommandArgument='<%# Eval("MovieHallId") %>' PostBackUrl="addHall.aspx" />
+                                    <asp:Button ID="btnAdd" class="btn btn-accent" runat="server" Text="Add New Hall" CommandArgument='<%# Eval("MovieHallId") %>' PostBackUrl="addHall.aspx" />
                                 </div>
                             </div>
                         </div>
@@ -149,7 +136,7 @@
 
                         
                                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  CellPadding="4" Width="86%" ForeColor="#333333" HorizontalAlign="Left" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="auto-style5" DataSourceID="SqlDataSource1" GridLines="None">
-            <AlternatingRowStyle BackColor="White" />
+            <AlternatingRowStyle BackColor="#F7F7F7" />
             <Columns>
                 <asp:BoundField DataField="MovieHallId" HeaderText="Hall ID" SortExpression="MovieHallId" />
                 <asp:BoundField DataField="Name" HeaderText="Hall" SortExpression="Name" />
@@ -170,20 +157,20 @@
 </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
-            <EditRowStyle BackColor="#2461BF" Height="65px" />
+            <EditRowStyle BackColor="#FFF8E6" Height="65px" />
             
             <EmptyDataRowStyle Width="65px" />
             
-            <FooterStyle BackColor="#507CD1" ForeColor="White" Font-Bold="True" Width="65px" />
-            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" BorderStyle="Solid" Height="65px" Font-Size="15px" HorizontalAlign="Center" />
+            <FooterStyle BackColor="#2B2B2B" ForeColor="White" Font-Bold="True" Width="65px" />
+            <HeaderStyle BackColor="#2B2B2B" Font-Bold="True" ForeColor="White" BorderStyle="Solid" Height="65px" Font-Size="15px" HorizontalAlign="Center" />
             <PagerSettings FirstPageText="First" LastPageText="Last" />
-            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" Height="30px" VerticalAlign="Middle" />
-            <RowStyle BackColor="#EFF3FB" Font-Size="Small" Height="60px" />
-            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" Wrap="False" />
-            <SortedAscendingCellStyle BackColor="#F5F7FB" />
-            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-            <SortedDescendingCellStyle BackColor="#E9EBEF" />
-            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            <PagerStyle BackColor="#FFF8E6" ForeColor="White" HorizontalAlign="Center" Height="30px" VerticalAlign="Middle" />
+            <RowStyle BackColor="#FFFFFF" Font-Size="Small" Height="60px" />
+            <SelectedRowStyle BackColor="#FFF3D6" Font-Bold="True" ForeColor="#333333" Wrap="False" />
+            <SortedAscendingCellStyle BackColor="#FAFAFA" />
+            <SortedAscendingHeaderStyle BackColor="#3A3A3A" />
+            <SortedDescendingCellStyle BackColor="#F2F2F2" />
+            <SortedDescendingHeaderStyle BackColor="#3A3A3A" />
         </asp:GridView>
         <p>&nbsp;</p>
         <br />
@@ -192,7 +179,7 @@
 </div>  
                 <asp:Label ID="lblNoRecord" runat="server" Text="[lblNoRecord]" Font-Bold="True" Font-Italic="True" Font-Overline="False" Font-Size="20pt" Font-Strikeout="False" ForeColor="#3333CC"></asp:Label>
                      
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MovieTicketingSystem.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM MovieHall"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM MovieHall"></asp:SqlDataSource>
             </div>
             </form>
             <br />

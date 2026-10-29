@@ -5,24 +5,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
 
     <style>
         :root {
-            --onyx: hsl(0, 0%, 25%);
-            --azure: hsl(219, 77%, 60%);
-            --white: hsl(0, 0%, 100%);
-            --platinum: hsl(0, 0%, 91%);
-            --gainsboro: hsl(0, 0%, 90%);
-            --red-salsa: hsl(0, 77%, 60%);
-            --dim-gray: hsl(0, 0%, 39%);
-            --davys-gray: hsl(0, 0%, 30%);
-            --spanish-gray: hsl(0, 0%, 62%);
-            --quick-silver: hsl(0, 0%, 64%);
-            --f5-28: 28px;
-            --f5-24: 24px;
+            --onyx: #ece9e4;
+            --azure: #d9a441;
+            --white: #1e1e1e;
+            --platinum: #282828;
+            --gainsboro: #353535;
+            --red-salsa: #e0645c;
+            --dim-gray: #d6d2cc;
+            --davys-gray: #ece9e4;
+            --spanish-gray: #a39f98;
+            --quick-silver: #a39f98;
+            --fs-28: 28px;
+            --fs-24: 24px;
             --fs-18: 18px;
-            --f5-15: 15px;
+            --fs-15: 15px;
             --fs-14: 14px;
             --fw-5: 500;
             --fw-6: 600;
@@ -39,7 +38,12 @@
         }
 
         html {
-            font-family: 'Source Sans 3', sans-serif;
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background: #141414;
+            color: #ece9e4;
         }
 
         a {
@@ -98,7 +102,7 @@
             border-radius: 10px;
         }
 
-        -webkit-scrollbar-thumb:hover {
+        ::-webkit-scrollbar-thumb:hover {
             background: hsl(0, 0%, 70%);
         }
 
@@ -111,7 +115,7 @@
             display: flex;
             flex-direction: column;
         }
-        heading {
+        .heading {
             font-size: var(--fs-28);
             font-weight: var(--fw-6);
             color: var(--onyx);
@@ -121,7 +125,7 @@
             align-items: center;
             gap: 20px;
         }
-        heading ion-icon { font-size: 40px; }
+        .heading ion-icon { font-size: 40px; }
 
         .item-flex {
             display: flex;
@@ -137,7 +141,7 @@
             border-right: 1px solid var(--gainsboro);
         }
 
-        section-heading {
+        .section-heading {
             color: var(--onyx);
             margin-bottom: 30px;
             font-size: var(--fs-24);
@@ -156,6 +160,7 @@
         }
 
             .payment-method .method {
+                color: var(--onyx);
                 border: 1px solid var(--quick-silver);
                 border-radius: var(--radius);
                 width: 50%;
@@ -200,7 +205,7 @@
             font-weight: var(--fw-5);
         }
 
-        cardholder-name,
+        .cardholder-name,
         .card-number {
             margin-bottom: 10px;
         }
@@ -237,9 +242,9 @@
 
 
         .btn-success {
-            background: #28a745;
-            font-weight: var(--fw-5);
-            color: #212529;
+            background: var(--azure);
+            font-weight: var(--fw-6);
+            color: #1b1b1b;
             padding: 13px 45px;
             margin-right: 10px;
 
@@ -251,21 +256,19 @@
 
 
             .btn-success:hover {
-                background-color: #218838;
-                border-color: #1e7e34;
+                background-color: #e8b65a;
             }
 
         .btn-warning {
-            background-color: #ffc107;
-            font-weight: var(--fw-5);
-            color: #212529;
-            border-color: #ffc107;
+            background: transparent;
+            border: 1px solid var(--gainsboro);
+            font-weight: var(--fw-6);
+            color: var(--onyx);
             padding: 13px 45px;
         }
 
             .btn-warning:hover {
-                background-color: #e0a800;
-                border-color: #d39e00;
+                background-color: var(--platinum);
             }
 
             /* 
@@ -285,7 +288,7 @@
             margin-bottom: auto; 
         }
 
-        transaction-card:not(:last-child) {
+        .transaction-card:not(:last-child) {
             margin-bottom: 20px;
         }
 
@@ -308,7 +311,7 @@
             margin-bottom: 10px;
         }
             
-        .card detail wrapper {
+        .card .detail .wrapper {
             display: flex;
             gap: 20px;
         }
@@ -340,7 +343,7 @@
             color: var(--azure);
         }
 
-        btn-outline:hover {
+        .btn-outline:hover {
             background: var(--azure);
             color: var(--white);
         }
@@ -404,14 +407,14 @@
                         <div class="cardholder-name">
                             <asp:Label ID="Label1" for="cc_name" class="label-default" runat="server" Text="Card Holder's Name"></asp:Label>
                             <asp:TextBox ID="txtName" class="input-default" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Card holder name is required" Display="Dynamic" ControlToValidate="txtName" ForeColor="#CC0000" ValidationGroup="submit"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Card holder name is required" Display="Dynamic" ControlToValidate="txtName" ForeColor="#e0645c" ValidationGroup="submit"></asp:RequiredFieldValidator>
                         </div>
 
                         <div class="card-number">
                             <asp:Label ID="Label2" class="label-default" runat="server" Text="Card Number"></asp:Label>
                             <asp:TextBox ID="txtCardNum" class="input-default" runat="server" MaxLength="16"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Card Number is required" Display="Dynamic" ControlToValidate="txtCardNum" ForeColor="#CC0000" ValidationGroup="submit"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="*Card Number contains 16 number" ValidationExpression="[0-9]{16}" ControlToValidate="txtCardNum" Display="Dynamic" ForeColor="#CC0000" ValidationGroup="submit"></asp:RegularExpressionValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Card Number is required" Display="Dynamic" ControlToValidate="txtCardNum" ForeColor="#e0645c" ValidationGroup="submit"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="*Card Number contains 16 number" ValidationExpression="[0-9]{16}" ControlToValidate="txtCardNum" Display="Dynamic" ForeColor="#e0645c" ValidationGroup="submit"></asp:RegularExpressionValidator>
                             <br />
                         </div>
 
@@ -419,25 +422,25 @@
                             <div class="expire-date">
                                 <label for="expire-date" class="label-default">Expiration date</label>
                                 <div class="input-flex">
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Expire Month is required" Display="Dynamic" ControlToValidate="txtExpMonth" ForeColor="#CC0000" ValidationGroup="submit"></asp:RequiredFieldValidator>
-                                    <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Expire Month must in range [1-12]" ControlToValidate="txtExpMonth" MaximumValue="12" MinimumValue="1" Type="Integer" ForeColor="#CC0000" ValidationGroup="submit"></asp:RangeValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Expire Month is required" Display="Dynamic" ControlToValidate="txtExpMonth" ForeColor="#e0645c" ValidationGroup="submit"></asp:RequiredFieldValidator>
+                                    <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Expire Month must in range [1-12]" ControlToValidate="txtExpMonth" MaximumValue="12" MinimumValue="1" Type="Integer" ForeColor="#e0645c" ValidationGroup="submit"></asp:RangeValidator>
                                     <asp:TextBox ID="txtExpMonth" class="input-default" runat="server" MaxLength="2"></asp:TextBox>
                                     /<asp:TextBox ID="txtExpYear" class="input-default" runat="server" MaxLength="4"></asp:TextBox>
-                                    &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Expire Year is required" Display="Dynamic" ControlToValidate="txtExpYear" ForeColor="#CC0000" ValidationGroup="submit"></asp:RequiredFieldValidator>
-                                    <asp:RangeValidator ID="RangeValidator2" runat="server" ErrorMessage="Expire Year must in range [2024-2030]" ControlToValidate="txtExpYear" Display="Dynamic" MaximumValue="2030" MinimumValue="2024" Type="Integer" ForeColor="#CC0000" ValidationGroup="submit"></asp:RangeValidator>
+                                    &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Expire Year is required" Display="Dynamic" ControlToValidate="txtExpYear" ForeColor="#e0645c" ValidationGroup="submit"></asp:RequiredFieldValidator>
+                                    <asp:RangeValidator ID="RangeValidator2" runat="server" ErrorMessage="Expire Year must in range [2024-2030]" ControlToValidate="txtExpYear" Display="Dynamic" MaximumValue="2030" MinimumValue="2024" Type="Integer" ForeColor="#e0645c" ValidationGroup="submit"></asp:RangeValidator>
                                 </div>
                             </div>
 
                             <div class="cvv">
                                 <label for="cvv" class="label-default">CVV</label>
                                 <asp:TextBox ID="txtCVC" class="input-default" runat="server" MaxLength="3"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*CVC is required" ControlToValidate="txtCVC" Display="Dynamic" ForeColor="#CC0000" ValidationGroup="submit"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="*CVC contains 3 number" Display="Dynamic" ForeColor="#CC0000" ControlToValidate="txtCVC" ValidationExpression="[0-9]{3}" ValidationGroup="submit"></asp:RegularExpressionValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*CVC is required" ControlToValidate="txtCVC" Display="Dynamic" ForeColor="#e0645c" ValidationGroup="submit"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="*CVC contains 3 number" Display="Dynamic" ForeColor="#e0645c" ControlToValidate="txtCVC" ValidationExpression="[0-9]{3}" ValidationGroup="submit"></asp:RegularExpressionValidator>
                             </div>
                         </div>
 
                         <label class="label-default"><h3>Total Amount:</h3></label>
-                            <asp:TextBox ID="txtAmount" Style="background-color: #fff;" class="input-default" runat="server" Enabled="True" ReadOnly="True"></asp:TextBox>
+                            <asp:TextBox ID="txtAmount" class="input-default" runat="server" Enabled="True" ReadOnly="True"></asp:TextBox>
                     <hr>
 
 

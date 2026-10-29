@@ -1,40 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MovieTicketingSystem.Master" AutoEventWireup="true" CodeBehind="LoginRegister.aspx.cs" Inherits="Movie_Ticketing_System.LoginRegister" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-        body {
-            background-image: url(Images/CinameBackground1.jpg);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
         .login-register-content {
-            padding: 5%;
-            justify-content: center;
             display: flex;
-        }
-
-        :root {
-            --linear-grad: linear-gradient(to right, #141E30, #243B55);
-            --grad-clr1: #141E30;
-            --grad-clr2: #243B55;
+            justify-content: center;
+            padding: 48px 16px;
         }
 
         .container {
             position: relative;
-            width: 1048px;
+            width: 960px;
             height: 600px;
-            background-color: #FFF;
-            box-shadow: 25px 30px 55px #5557;
-            border-radius: 13px;
             overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background-color: var(--surface);
         }
-
 
         .form-container {
             position: absolute;
@@ -63,28 +45,17 @@
             margin-right: 14%;
         }
 
-        h1 {
-            color: var(--grad-clr1);
-        }
+            .signUpAndLogin h1 {
+                margin: 0 0 6px;
+                font-size: 26px;
+                font-weight: 600;
+            }
 
-        .loginIcon-container {
-            margin: 20px 0px;
-            border: 2px solid #141E30;
-            border-radius: 50%;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0px 5px;
-            height: 50px;
-            width: 50px;
-            font-size: 36px;
-        }
-
-
-
-        span {
-            font-size: 15px;
-        }
+            .signUpAndLogin > span {
+                margin-bottom: 18px;
+                color: var(--muted);
+                font-size: 14px;
+            }
 
         .infield {
             position: relative;
@@ -97,74 +68,38 @@
         }
 
         input.input1 {
-            width: 94%;
-            padding: 13px 9px;
-            background-color: #f3f3f3;
-            border: none;
-            /*            border-color:darkgray;
-        border-width:0.1px;*/
+            width: 100%;
+            box-sizing: border-box;
+            padding: 11px 12px;
+            border: 1px solid var(--line);
+            border-radius: 4px;
             outline: none;
-            height: 20px;
+            background-color: var(--surface-raised);
+            color: var(--text);
+            font: inherit;
             font-size: 15px;
         }
 
-        .input1::placeholder {
-            font-size: 16px;
-        }
-
-
-        label {
-            position: absolute;
-            left: 50%;
-            top: 100%;
-            transform: translateX(-50%);
-            width: 0%;
-            height: 2px;
-            background: var(--linear-grad);
-            transition: 0.3s;
-        }
-
-        input:focus ~ label {
-            width: 100%
-        }
-
-
-
-        .forgot {
-            margin-top: 15px;
-            padding-bottom: 3px;
-            border-bottom: 2px solid #EEE;
-        }
-
-        .button1,.button2 {
-            border-radius: 20px;
-            border: 1px solid var(--grad-clr1);
-            background: var(--grad-clr2);
-            color: #FFF;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 12px 45px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-            .button1:hover,.button2:hover {
-                background: #FFF;
-                color: var(--grad-clr1);
+            input.input1:focus {
+                border-color: var(--accent);
             }
 
-        .button2 {
-            margin-top: 15px;
+        .button1, .button2 {
+            margin-top: 18px;
+            padding: 10px 36px;
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            background: var(--accent);
+            color: var(--on-accent);
+            font: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
         }
 
-        .form-container button {
-            margin-top: 17px;
-            transition: 80ms ease-in;
-        }
-
-
-
-
+            .button1:hover, .button2:hover {
+                background: var(--accent-hover);
+            }
 
         .overlay-container {
             position: absolute;
@@ -181,19 +116,18 @@
             cursor: pointer;
             position: absolute;
             left: 50%;
-            top: 370px;
+            top: 352px;
             transform: translate(-50%);
-            width: 143.67px;
-            height: 40px;
-            border: 2px solid #FFF;
+            width: 150px;
+            height: 42px;
+            border: none;
             background: transparent;
-            border-radius: 20px;
         }
 
         .overlay {
             position: relative;
-            background: var(--linear-grad);
-            color: #FFF;
+            background: #0f0f0f;
+            color: var(--text);
             left: -150%;
             height: 100%;
             width: 250%;
@@ -213,6 +147,27 @@
             transition: 0.6s ease-in-out;
         }
 
+            .overlay-panel h1 {
+                margin: 0;
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+            .overlay-panel p {
+                margin: 12px 0 28px;
+                color: var(--muted);
+                font-size: 15px;
+            }
+
+            .overlay-panel .button1 {
+                width: 150px;
+                margin: 0;
+                padding: 10px 0;
+                border-color: var(--line);
+                background: transparent;
+                color: var(--text);
+            }
+
         .overlay-left {
             right: 60%;
             transform: translateX(-12%);
@@ -221,23 +176,6 @@
         .overlay-right {
             right: 0;
             transform: translateX(0%);
-        }
-
-        .overlay-panel h1 {
-            color: #FFF;
-        }
-
-        p {
-            font-size: 14px;
-            font-weight: 300;
-            line-height: 20px;
-            letter-spacing: 0.5px;
-            margin: 25px 0px 35px;
-        }
-
-        .overlay-panel button {
-            border: none;
-            background-color: transparent;
         }
 
         .right-panel-active .overlay-container {
@@ -279,10 +217,7 @@
                 z-index: 5;
             }
         }
-
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -292,18 +227,15 @@
                 <div class="form-container sign-up-container">
                     <div class="signUpAndLogin" style="margin-right: 25%">
                         <h1>Create Account</h1>
-                        <span>Join us today! Sign up your account to get started.</span>
-                        <br>
+                        <span>All fields are required.</span>
                         <div class="infield">
                             <asp:TextBox ID="txtFullName" runat="server" CssClass="input1" placeholder="Full Name"></asp:TextBox>
-                            <label></label>
                         </div>
                         <div class="errorMsg">
                             <asp:RequiredFieldValidator ID="FullNameRequired" runat="server" ControlToValidate="txtFullName" ErrorMessage="Full Name is required." ToolTip="Full Name is required." ValidationGroup="SignUp" Display="Dynamic" ForeColor="Red" Font-Size="Smaller">*Full Name is required.</asp:RequiredFieldValidator>
                         </div>
                         <div class="infield">
                             <asp:TextBox ID="txtPhoneNumber" runat="server" CssClass="input1" placeholder="Phone Number"></asp:TextBox>
-                            <label></label>
                         </div>
                         <div class="errorMsg">
                             <asp:RegularExpressionValidator ID="PhoneNumRegex" runat="server" ControlToValidate="txtPhoneNumber" ErrorMessage="Invalid phone number format." ValidationGroup="SignUp" ForeColor="Red" ValidationExpression="^(010|011|012|013|014|016|017|019)\d{7,8}$" Display="Dynamic" Font-Size="Smaller">*Invalid phone number format.</asp:RegularExpressionValidator>
@@ -312,7 +244,6 @@
                         </div>
                         <div class="infield">
                             <asp:TextBox ID="txtEmail" runat="server" CssClass="input1" placeholder="Email"></asp:TextBox>
-                            <label></label>
                         </div>
                         <div class="errorMsg">
                             <asp:RegularExpressionValidator ID="EmailRegex" runat="server" ControlToValidate="txtEmail" ErrorMessage="Invalid email address format." ValidationGroup="SignUp" Display="Dynamic" ForeColor="Red" Font-Size="Smaller" ValidationExpression="\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b">*Invalid email address format.</asp:RegularExpressionValidator>
@@ -321,7 +252,6 @@
                         </div>
                         <div class="infield">
                             <asp:TextBox ID="txtRegisterPassword" runat="server" CssClass="input1" TextMode="Password" placeholder="Password"></asp:TextBox>
-                            <label></label>
                         </div>
                         <div class="errorMsg">
                             <asp:RegularExpressionValidator ID="PasswordRegex" runat="server" ControlToValidate="txtRegisterPassword" ErrorMessage="Password must be at least 8 characters long and contain both letters and numbers." ValidationGroup="SignUp"  Display="Dynamic" ForeColor="Red" Font-Size="Smaller" ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" >*Password must at least 8 characters contain both letters and numbers.</asp:RegularExpressionValidator>
@@ -340,15 +270,10 @@
 
                 <div class="form-container sign-in-container">
                     <div class="signUpAndLogin">
-                        <div class="loginIcon-container">
-                            <i class="ri-login-box-line"></i>
-                        </div>
                         <h1>Sign in</h1>
-                        <span>Welcome back! please enter your login detail</span>
-                        <br>
+                        <span>Use the email you registered with.</span>
                         <div class="infield">
                             <asp:TextBox ID="txtEmailLogin" runat="server" CssClass="input1" placeholder="Email"></asp:TextBox>
-                            <label></label>
                         </div>
                         <div class="errorMsg">
                            <asp:CustomValidator ID="LoginEmailValidator" runat="server" ErrorMessage="Invalid Email Address" ControlToValidate="txtEmailLogin" Display="Dynamic" ForeColor="Red" Font-Size="Smaller">*Invalid Email Address</asp:CustomValidator>
@@ -357,13 +282,11 @@
                         </div>
                         <div class="infield">
                             <asp:TextBox ID="txtPasswordLogin" runat="server" CssClass="input1" TextMode="Password" placeholder="Password"></asp:TextBox>
-                            <label></label>
                         </div>
                         <div class="errorMsg">
                             <asp:CustomValidator ID="LoginPasswordValidator" runat="server" ErrorMessage="Invalid Password" ControlToValidate="txtEmailLogin" Display="Dynamic" ForeColor="Red" Font-Size="Smaller">*Invalid Password</asp:CustomValidator>
                             <asp:RequiredFieldValidator ID="LoginPasswordRequired" runat="server" ControlToValidate="txtPasswordLogin" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="Login"  Display="Dynamic" ForeColor="Red" Font-Size="Smaller">*Password is required.</asp:RequiredFieldValidator>
                         </div>
-                        <a href="#" class="forgot">Forgot your password?</a>
                         <asp:Button ID="SigInBtn" runat="server" Text="Sign In" class="button1" OnClick="SigInBtn_Click" ValidationGroup="Login"/>
                     </div>
                 </div>
@@ -371,13 +294,13 @@
                 <div class="overlay-container" id="overlayCon">
                     <div class="overlay">
                         <div class="overlay-panel overlay-left">
-                            <h1>Welcome Back!</h1>
-                            <p>To keep connected with us please login with your personal info</p>
+                            <h1>Have an account?</h1>
+                            <p>Sign in to see your cart and past bookings.</p>
                             <button class="button1">Sign In</button>
                         </div>
                         <div class="overlay-panel overlay-right">
-                            <h1>Hello, Friend!</h1>
-                            <p>Enter your personal details and start journey with us</p>
+                            <h1>New here?</h1>
+                            <p>Create an account to book seats and order snacks.</p>
                             <button class="button1">Sign Up</button>
                         </div>
                     </div>

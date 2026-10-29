@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Policy;
@@ -9,7 +10,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 namespace Movie_Ticketing_System
 {
-    public partial class MaintainHall : System.Web.UI.Page
+    public partial class MaintainHall : AdminPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -74,7 +75,7 @@ namespace Movie_Ticketing_System
         {
             ImageButton cmdDelete = sender as ImageButton;
             String MovieHallId = cmdDelete.Attributes["MovieHallID"].ToString();
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MovieTicketingSystem.mdf;Integrated Security=True");
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             con.Open();
 
             string strDelete = "Delete From MovieHall Where MovieHallId=@MovieHallId";
