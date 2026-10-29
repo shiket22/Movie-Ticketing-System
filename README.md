@@ -3,20 +3,18 @@
 A cinema booking web app built with ASP.NET Web Forms and SQL Server. It was a group project for the
 Web Application Development course (BAIT2113) in 2024.
 
-<!-- Screenshots: add them to docs/screenshots and list them here, for example
-![Home page](docs/screenshots/home.png) -->
-
 ## Features
 
 **Customers**
 - Browse movies that are showing now or coming soon, search, and read each movie's details
 - Register, log in, edit the profile and change the password
 - Choose seats for a show time, add food and drinks, then pay from the cart. Picked seats are held for
-  5 minutes; if the order isn't paid by then, they go back on sale
+  5 minutes; if the order isn't paid by then, they go back on sale. A seat is only taken if it's still
+  free, so two people can't book the same one
 - See past bookings
 
 **Admins**
-- Add, edit and remove movies, halls (with their seats) and show times
+- Log in with an admin account to add, edit and remove movies, halls (with their seats) and show times
 
 ## Tech
 
@@ -30,6 +28,14 @@ C#, ASP.NET Web Forms (.NET Framework 4.7.2), SQL Server LocalDB, HTML, CSS, Jav
 - The admin pages inherit from `AdminPage`, which sends anyone who isn't logged in as an admin to the login page.
 - The payment page is a mock-up and saves the card number as typed. Never enter a real card number.
 
+## Known limitations
+
+- Paying for an order deletes its rows in `BookingSeat`, as the original coursework did. The seats stay sold,
+  but a paid booking keeps only its amount, not which seats were bought.
+- The profile page loads Bootstrap 3 and jQuery 1.11 from CDNs, Bootstrap's script first, so the browser
+  console shows an error. The page still works.
+- In the sample data, `Movie.Hall` holds numbers (1 to 5), while halls are named "Hall A", "Hall B" and so on.
+
 ## Running it
 
 1. Install Visual Studio 2022 with the **ASP.NET and web development** workload. It includes SQL Server
@@ -42,6 +48,8 @@ C#, ASP.NET Web Forms (.NET Framework 4.7.2), SQL Server LocalDB, HTML, CSS, Jav
       then do the same with `Database/sample-data.sql`.
       Two warnings about a 900-byte key length are expected.
 4. Press **F5** to run the site in IIS Express.
+
+Last tested on Windows 11 with IIS Express 10 and SQL Server Express LocalDB 2025.
 
 If you created the database before seat holds were added, add the new column instead of starting over:
 
