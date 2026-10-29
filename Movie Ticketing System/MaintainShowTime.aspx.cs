@@ -26,7 +26,7 @@ namespace Movie_Ticketing_System.admin
             }
             else
             {
-                lblMsg.Text = " ";
+                lblMsg.Text = "";
             }
             if (Session["Emsg"] != null)
             {
@@ -35,7 +35,7 @@ namespace Movie_Ticketing_System.admin
             }
             else
             {
-                lblEMsg.Text = " ";
+                lblEMsg.Text = "";
             }
             int recordNum = 0;
 
@@ -45,7 +45,7 @@ namespace Movie_Ticketing_System.admin
             }
             if (recordNum == 0)
             {
-                lblNoRecord.Text = "No Record Found";
+                lblNoRecord.Text = "No movies yet.";
             }
             else
             {
@@ -55,13 +55,6 @@ namespace Movie_Ticketing_System.admin
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-        }
-        protected void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-        }
-        protected void btnAll_Click(object sender, EventArgs e)
-        {
-
         }
         protected void cmdUpdate_Click(object sender, ImageClickEventArgs e)
         {

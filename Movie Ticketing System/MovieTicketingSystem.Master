@@ -39,13 +39,41 @@
     </div>
     <footer class="site-footer">
         <div class="footer-inner">
-            <p>SSC Cinema, a group project for BAIT2113 Web Application Development (2024). Not a real cinema.</p>
-            <nav>
-                <a href="MovieList.aspx">Movies</a>
-                <a href="FnB.aspx">Food &amp; Drinks</a>
-                <a href="BookingHistory.aspx">Bookings</a>
-            </nav>
+            <div class="footer-col">
+                <img class="footer-logo" src="Images/SSC Logo.png" alt="SSC Cinema" />
+                <p class="footer-address">
+                    <i class="ri-map-pin-line"></i>
+                    123 Example Street,<br />
+                    Kuala Lumpur, Malaysia
+                </p>
+            </div>
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <nav class="footer-links">
+                    <a href="MovieList.aspx">Movies</a>
+                    <a href="MovieComingSoon.aspx">Coming soon</a>
+                    <a href="FnB.aspx">Food &amp; Drinks</a>
+                    <a href="BookingHistory.aspx">Bookings</a>
+                </nav>
+            </div>
+            <div class="footer-col">
+                <h3>Follow us</h3>
+                <div class="social">
+                    <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                    <a href="#" aria-label="X"><i class="ri-twitter-x-line"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Download the app</h3>
+                <div class="app-badges">
+                    <a href="#"><i class="ri-apple-fill"></i>App Store</a>
+                    <a href="#"><i class="ri-google-play-fill"></i>Google Play</a>
+                    <a href="#"><i class="ri-store-2-fill"></i>AppGallery</a>
+                </div>
+            </div>
         </div>
+        <p class="footer-note">&copy; 2024 SSC Cinema. A group project for BAIT2113 Web Application Development, not a real cinema.</p>
     </footer>
 </body>
 </html>

@@ -112,10 +112,5 @@ namespace Movie_Ticketing_System
             }
         }
 
-        protected void btnRemove_Click(object sender, EventArgs e)
-        {
-            image.PostedFile.InputStream.Dispose();
-        }
-
     }
 }

@@ -21,6 +21,12 @@ namespace Movie_Ticketing_System
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 
+            if (IsHallIdTaken(txtHallId.Text))
+            {
+                idTaken.IsValid = false;
+                return;
+            }
+
             {
                 string query = "INSERT INTO MovieHall (MovieHallId, Name, Location) VALUES (@MovieHallId, @Name, @Location)";
 
@@ -37,8 +43,7 @@ namespace Movie_Ticketing_System
                     // Insert seats for the new hall
                     InsertSeats(txtHallId.Text);
 
-                    // If insertion is successful, you can do something here, like showing a success message.
-                    Response.Write("<script>alert('Hall added successfully');</script>");
+                    Session["msg"] = txtHallName.Text + " is added with 50 seats.";
                     Response.Redirect("MaintainHall.aspx");
                 }
                 else
@@ -46,6 +51,17 @@ namespace Movie_Ticketing_System
                     // If insertion fails, show an error message.
                     Response.Write("<script>alert('Failed to add Hall');</script>");
                 }
+            }
+        }
+
+        private bool IsHallIdTaken(string movieHallId)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM MovieHall WHERE MovieHallId = @MovieHallId", con);
+                cmd.Parameters.AddWithValue("@MovieHallId", movieHallId);
+                return (int)cmd.ExecuteScalar() > 0;
             }
         }
 

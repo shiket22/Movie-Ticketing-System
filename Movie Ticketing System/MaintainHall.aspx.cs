@@ -20,23 +20,23 @@ namespace Movie_Ticketing_System
                 BindGridView();
             }
 
-            if (Session["SuccessMessage"] != null)
+            if (Session["msg"] != null)
             {
-                lblMsg.Text = Session["SuccessMessage"].ToString();
-                Session.Remove("SuccessMessage");
+                lblMsg.Text = Session["msg"].ToString();
+                Session["msg"] = null;
             }
             else
             {
-                lblMsg.Text = " ";
+                lblMsg.Text = "";
             }
-            if (Session["ErrorMessage"] != null)
+            if (Session["Emsg"] != null)
             {
-                lblEMsg.Text = Session["ErrorMessage"].ToString();
-                Session.Remove("ErrorMessage");
+                lblEMsg.Text = Session["Emsg"].ToString();
+                Session["Emsg"] = null;
             }
             else
             {
-                lblEMsg.Text = " ";
+                lblEMsg.Text = "";
             }
             int recordNum = 0;
 
@@ -46,7 +46,7 @@ namespace Movie_Ticketing_System
             }
             if (recordNum == 0)
             {
-                lblNoRecord.Text = "No Record Found";
+                lblNoRecord.Text = "No halls yet.";
             }
             else
             {
@@ -81,7 +81,19 @@ namespace Movie_Ticketing_System
             string strDelete = "Delete From MovieHall Where MovieHallId=@MovieHallId";
             SqlCommand cmdDelete2 = new SqlCommand(strDelete, con);
             cmdDelete2.Parameters.AddWithValue("@MovieHallId", MovieHallId);
-            int n = cmdDelete2.ExecuteNonQuery();
+            int n;
+            try
+            {
+                n = cmdDelete2.ExecuteNonQuery();
+            }
+            catch (SqlException)
+            {
+                // The hall still has seats or show times pointing at it
+                Session["Emsg"] = "Hall " + MovieHallId + " has seats or show times, so it can't be deleted.";
+                con.Close();
+                Response.Redirect("~/MaintainHall.aspx");
+                return;
+            }
 
 
 

@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="Movie_Ticketing_System.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SSC Cinema Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="css/admin.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <aside class="admin-sidebar">
+        <a class="admin-brand" href="MaintainMovie.aspx">
+            <img src="Images/SSC Logo.png" alt="" />
+            <span>SSC Cinema<small>Admin</small></span>
+        </a>
+        <nav class="admin-nav">
+            <a id="navMovies" runat="server" href="~/MaintainMovie.aspx"><i class="ri-film-line"></i>Movies</a>
+            <a id="navHalls" runat="server" href="~/MaintainHall.aspx"><i class="ri-door-open-line"></i>Halls</a>
+            <a id="navShowTimes" runat="server" href="~/MaintainShowTime.aspx"><i class="ri-calendar-schedule-line"></i>Show times</a>
+        </nav>
+        <nav class="admin-nav admin-nav-foot">
+            <a href="Home.aspx"><i class="ri-external-link-line"></i>View site</a>
+            <a href="LoginRegister.aspx?logout=1"><i class="ri-logout-box-r-line"></i>Log out</a>
+        </nav>
+    </aside>
+    <main class="admin-main">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </main>
+
+    <script>
+        // Poster upload: preview the chosen file inside the drop zone, and accept a file dropped onto it
+        document.querySelectorAll('.dropzone').forEach(function (zone) {
+            var input = document.getElementById(zone.htmlFor);
+            var preview = zone.querySelector('img');
+            var fileName = zone.parentNode.querySelector('.file-name');
+            var showFile = function () {
+                var file = input.files[0];
+                if (file) {
+                    preview.src = URL.createObjectURL(file);
+                    fileName.textContent = file.name;
+                }
+            };
+            input.addEventListener('change', showFile);
+            zone.addEventListener('dragover', function (e) {
+                e.preventDefault();
+                zone.classList.add('dragging');
+            });
+            zone.addEventListener('dragleave', function () {
+                zone.classList.remove('dragging');
+            });
+            zone.addEventListener('drop', function (e) {
+                e.preventDefault();
+                zone.classList.remove('dragging');
+                input.files = e.dataTransfer.files;
+                showFile();
+            });
+        });
+    </script>
+</body>
+</html>

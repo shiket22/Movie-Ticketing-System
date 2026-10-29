@@ -10,7 +10,6 @@
 namespace Movie_Ticketing_System
 {
 
-
     public partial class addMovie
     {
 
@@ -87,22 +86,13 @@ namespace Movie_Ticketing_System
         protected global::System.Web.UI.WebControls.FileUpload image;
 
         /// <summary>
-        /// Image1 control.
+        /// requiredPoster control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
-
-        /// <summary>
-        /// btnRemove control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemove;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredPoster;
 
         /// <summary>
         /// RegularExpressionValidator1 control.

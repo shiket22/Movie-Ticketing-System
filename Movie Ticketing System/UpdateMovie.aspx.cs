@@ -30,11 +30,11 @@ namespace Movie_Ticketing_System
                         txtId.Text = dtrMovie["Id"].ToString();
                         img.ImageUrl = "../" + dtrMovie["Movie"].ToString();
                         txtMovieName.Text = dtrMovie["MovieName"].ToString();
-                        txtDate.Text = dtrMovie["ReleaseDate"].ToString();
+                        txtDate.Text = dtrMovie["ReleaseDate"] == DBNull.Value ? "" : ((DateTime)dtrMovie["ReleaseDate"]).ToString("yyyy-MM-dd");
                         txtDescription.Text = dtrMovie["Description"].ToString();
                         txtTime.Text = dtrMovie["DurationTime"].ToString();
-                        GenreList.SelectedValue = dtrMovie["Genre"].ToString();
-                        LanguageList.SelectedValue = dtrMovie["Language"].ToString();
+                        SelectOrAdd(GenreList, dtrMovie["Genre"].ToString());
+                        SelectOrAdd(LanguageList, dtrMovie["Language"].ToString());
 
 
 
@@ -51,6 +51,16 @@ namespace Movie_Ticketing_System
 
         }
 
+
+        // Selects the movie's saved value, adding it first if the list doesn't have it (selecting a missing value throws)
+        private static void SelectOrAdd(DropDownList list, string value)
+        {
+            if (list.Items.FindByValue(value) == null)
+            {
+                list.Items.Add(value);
+            }
+            list.SelectedValue = value;
+        }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
         {

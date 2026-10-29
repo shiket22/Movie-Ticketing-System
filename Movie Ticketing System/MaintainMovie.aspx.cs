@@ -25,7 +25,7 @@ namespace Movie_Ticketing_System
             }
             else
             {
-                lblMsg.Text = " ";
+                lblMsg.Text = "";
             }
             if (Session["Emsg"] != null)
             {
@@ -34,7 +34,7 @@ namespace Movie_Ticketing_System
             }
             else
             {
-                lblEMsg.Text = " ";
+                lblEMsg.Text = "";
             }
             int recordNum = 0;
 
@@ -44,7 +44,7 @@ namespace Movie_Ticketing_System
             }
             if (recordNum == 0)
             {
-                lblNoRecord.Text = "No Record Found";
+                lblNoRecord.Text = "No movies found.";
             }
             else
             {

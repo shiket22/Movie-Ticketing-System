@@ -33,6 +33,24 @@ namespace Movie_Ticketing_System
         protected global::System.Web.UI.WebControls.TextBox txtHallId;
 
         /// <summary>
+        /// requiredId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredId;
+
+        /// <summary>
+        /// idTaken control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator idTaken;
+
+        /// <summary>
         /// txtHallName control.
         /// </summary>
         /// <remarks>

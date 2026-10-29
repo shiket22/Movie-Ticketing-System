@@ -30,8 +30,17 @@ namespace Movie_Ticketing_System
                         txtId.Text = dtrMovie["Id"].ToString();
                         img.ImageUrl = "../" + dtrMovie["Movie"].ToString();
                         txtMovieName.Text = dtrMovie["MovieName"].ToString();
-                        txtShowTime.Text = dtrMovie["ShowTime"].ToString();
-                        hallList.SelectedValue = dtrMovie["Hall"].ToString();
+                        txtShowTime.Text = dtrMovie["ShowTime"] == DBNull.Value ? "" : ((DateTime)dtrMovie["ShowTime"]).ToString("yyyy-MM-dd HH:mm");
+                        // Selecting a value the list doesn't have throws, so add the saved hall first if needed
+                        string hall = dtrMovie["Hall"].ToString();
+                        if (hall != "" && hallList.Items.FindByValue(hall) == null)
+                        {
+                            hallList.Items.Add(hall);
+                        }
+                        if (hall != "")
+                        {
+                            hallList.SelectedValue = hall;
+                        }
 
 
                     }
@@ -66,7 +75,7 @@ namespace Movie_Ticketing_System
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             con.Open();
-            string strUpdate = "UPDATE Movie SET MovieName=@MovieName,ShowTime=@ShowTime,Hall=Hall WHERE Id=@Id";
+            string strUpdate = "UPDATE Movie SET MovieName=@MovieName,ShowTime=@ShowTime,Hall=@Hall WHERE Id=@Id";
             SqlCommand cmdUpdate = new SqlCommand(strUpdate, con);
             cmdUpdate.Parameters.AddWithValue("@Id", txtId.Text);
             cmdUpdate.Parameters.AddWithValue("@MovieName", txtMovieName.Text);
