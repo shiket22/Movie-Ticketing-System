@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MovieTicketingSystem.Master" AutoEventWireup="true" CodeBehind="ErrorPage.aspx.cs" Inherits="Movie_Ticketing_System.ErrorPage" %>
+﻿<%@ Page Title="Page not found - SSC Cinema" Language="C#" MasterPageFile="~/MovieTicketingSystem.Master" AutoEventWireup="true" CodeBehind="ErrorPage.aspx.cs" Inherits="Movie_Ticketing_System.ErrorPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

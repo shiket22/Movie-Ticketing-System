@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MovieTicketingSystem.Master" AutoEventWireup="true" CodeBehind="FnB.aspx.cs" Inherits="Movie_Ticketing_System.FnB" %>
+﻿<%@ Page Title="Food and drinks - SSC Cinema" Language="C#" MasterPageFile="~/MovieTicketingSystem.Master" AutoEventWireup="true" CodeBehind="FnB.aspx.cs" Inherits="Movie_Ticketing_System.FnB" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .food-grid {

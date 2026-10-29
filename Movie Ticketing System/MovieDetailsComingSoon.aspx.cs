@@ -60,6 +60,7 @@ namespace Movie_Ticketing_System
                     // Populate movie details
                     movieImage.ImageUrl = reader["Movie"].ToString();
                     lblMovieName.Text = reader["MovieName"].ToString();
+                    Title = lblMovieName.Text + " - SSC Cinema";
                     lblDescription.Text = reader["Description"].ToString();
                     lblReleaseDate.Text = "Release Date: " + ((DateTime)reader["ReleaseDate"]).ToString("MMMM dd, yyyy");
                     lblDuration.Text = "Duration: " + reader["DurationTime"].ToString();

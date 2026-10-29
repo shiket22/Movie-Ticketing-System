@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MovieTicketingSystem.Master" AutoEventWireup="true" CodeBehind="Summary.aspx.cs" Inherits="Movie_Ticketing_System.Summary" %>
+﻿<%@ Page Title="Order summary - SSC Cinema" Language="C#" MasterPageFile="~/MovieTicketingSystem.Master" AutoEventWireup="true" CodeBehind="Summary.aspx.cs" Inherits="Movie_Ticketing_System.Summary" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .summary-container {

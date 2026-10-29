@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MovieTicketingSystem.Master" AutoEventWireup="true" CodeBehind="LoginRegister.aspx.cs" Inherits="Movie_Ticketing_System.LoginRegister" %>
+﻿<%@ Page Title="Log in - SSC Cinema" Language="C#" MasterPageFile="~/MovieTicketingSystem.Master" AutoEventWireup="true" CodeBehind="LoginRegister.aspx.cs" Inherits="Movie_Ticketing_System.LoginRegister" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>

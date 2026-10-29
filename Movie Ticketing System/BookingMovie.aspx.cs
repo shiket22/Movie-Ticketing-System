@@ -35,6 +35,13 @@ namespace Movie_Ticketing_System
                     }
                 }
                 con.Close();
+
+                // The first show time is already selected, so SelectedIndexChanged won't fire for it: show its seats now
+                ddlMovieTime.DataBind();
+                if (ddlMovieTime.Items.Count > 0)
+                {
+                    ddlMovieTime_SelectedIndexChanged(ddlMovieTime, EventArgs.Empty);
+                }
             }
         }
 
@@ -141,10 +148,8 @@ namespace Movie_Ticketing_System
                         cmdUpdate.ExecuteNonQuery();
                     }
                 }
-
-
-                con.Close();
             }
+            con.Close();
 
             if (!string.IsNullOrEmpty(selectedShowTime))
             {
@@ -160,8 +165,6 @@ namespace Movie_Ticketing_System
             {
                 pnlBooking.Visible = false;
             }
-
-            con.Close();
         }
 
         private DataTable GetSeatData(string showTMID)
@@ -277,20 +280,9 @@ namespace Movie_Ticketing_System
 
                     int n = cmdUpdate.ExecuteNonQuery();
 
-                    if (n > 0)
-                    {
-                        Response.Write(@"<script>
-                         alert('Seats booked: ' + seatId);
-                            window.location = 'BookingMovie.aspx';
-                            </script>");
-                    }
-                    else
-                    {
-                        Response.Write(@"<script>
-                            alert('Something wrong. Please try again.');
-                                window.location = 'BookingMovie.aspx';
-                                </script>");
-                    }
+                    string seatNumber = ((Button)e.CommandSource).Text;
+                    string message = n > 0 ? "Seat " + seatNumber + " is added to your cart." : "Something went wrong. Please try again.";
+                    ClientScript.RegisterStartupScript(GetType(), "seatResult", "alert(" + HttpUtility.JavaScriptStringEncode(message, true) + ");", true);
 
                     BindSeatData();
                     con.Close();

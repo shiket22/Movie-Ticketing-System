@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MovieTicketingSystem.Master" AutoEventWireup="true" CodeBehind="OrderCart.aspx.cs" Inherits="Movie_Ticketing_System.OrderCart1" %>
+﻿<%@ Page Title="Cart - SSC Cinema" Language="C#" MasterPageFile="~/MovieTicketingSystem.Master" AutoEventWireup="true" CodeBehind="OrderCart.aspx.cs" Inherits="Movie_Ticketing_System.OrderCart1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
