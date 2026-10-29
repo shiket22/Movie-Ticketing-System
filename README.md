@@ -11,7 +11,8 @@ Web Application Development course (BAIT2113) in 2024.
 **Customers**
 - Browse movies that are showing now or coming soon, search, and read each movie's details
 - Register, log in, edit the profile and change the password
-- Choose seats for a show time, add food and drinks, then pay from the cart
+- Choose seats for a show time, add food and drinks, then pay from the cart. Picked seats are held for
+  5 minutes; if the order isn't paid by then, they go back on sale
 - See past bookings
 
 **Admins**
@@ -41,6 +42,12 @@ C#, ASP.NET Web Forms (.NET Framework 4.7.2), SQL Server LocalDB, HTML, CSS, Jav
       then do the same with `Database/sample-data.sql`.
       Two warnings about a 900-byte key length are expected.
 4. Press **F5** to run the site in IIS Express.
+
+If you created the database before seat holds were added, add the new column instead of starting over:
+
+```sql
+ALTER TABLE BookingSeat ADD HeldAt datetime NULL;
+```
 
 Demo accounts from the sample data:
 

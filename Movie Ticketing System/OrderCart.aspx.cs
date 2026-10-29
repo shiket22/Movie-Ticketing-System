@@ -15,6 +15,8 @@ namespace Movie_Ticketing_System
         private SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+            SeatHold.ReleaseExpired();
+
             if (Session["UserId"] != null)
             {
                 con.Open();
@@ -72,14 +74,30 @@ namespace Movie_Ticketing_System
                         }
                     }
                     lblTotal.Text = String.Format("{0:0.00}", total) + "";
+                    ShowHold(Session["OID"].ToString());
                 }
                 else
                 {
                     lblTotalSeat.Text = "0";
                     lblTotalMeal.Text = "0";
                     lblTotal.Text = "0.00";
+                    ShowHold(null);
                 }
                 con.Close();
+            }
+        }
+
+        // Says how long the seats in the cart are held, or that the hold has run out
+        private void ShowHold(string bookingId)
+        {
+            int seconds = bookingId == null ? -1 : SeatHold.SecondsLeft(bookingId);
+            if (seconds >= 0)
+            {
+                lblHold.Text = "Your seats are held for <strong data-hold-seconds=\"" + seconds + "\">" + seconds / 60 + ":" + (seconds % 60).ToString("00") + "</strong>. Pay before then or they go back on sale.";
+            }
+            else if (Request.QueryString["expired"] != null)
+            {
+                lblHold.Text = "Your seat hold ran out, so those seats went back on sale. Pick them again if they're still free.";
             }
         }
 
@@ -130,13 +148,10 @@ namespace Movie_Ticketing_System
 
             if (!string.IsNullOrEmpty(bItemId))
             {
-                string strDeleteSeat = "DELETE FROM BookingSeat WHERE BookingSeatId = @BookingSeatId";
-                SqlCommand cmdDeleteSeat = new SqlCommand(strDeleteSeat, con);
-                cmdDeleteSeat.Parameters.AddWithValue("@BookingSeatId", bItemId);
-                cmdDeleteSeat.ExecuteNonQuery();
-
+                SeatHold.Release(bItemId);
             }
             con.Close();
+            Response.Redirect("OrderCart.aspx");
 
             //SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString); 
             //con.Open();

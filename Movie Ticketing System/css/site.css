@@ -365,6 +365,26 @@ a {
         border-bottom: 1px solid var(--line);
     }
 
+.hold-note {
+    display: block;
+    margin: -8px 0 8px;
+    padding: 10px 14px;
+    border: 1px solid #5a4a26;
+    border-radius: 6px;
+    background: rgba(217, 164, 65, 0.08);
+    color: var(--text);
+    font-size: 14px;
+}
+
+    .hold-note:empty {
+        display: none;
+    }
+
+    .hold-note strong {
+        color: var(--accent);
+        font-variant-numeric: tabular-nums;
+    }
+
 .empty-note {
     grid-column: 1 / -1;
     margin: 0;

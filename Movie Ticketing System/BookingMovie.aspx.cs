@@ -18,6 +18,8 @@ namespace Movie_Ticketing_System
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            SeatHold.ReleaseExpired();
+
             if (!IsPostBack)
             {
                 // Bind the movie name and time dropdown list on the initial page load
@@ -101,54 +103,6 @@ namespace Movie_Ticketing_System
                         </script>");
             }
             reader.Close();
-
-            if (Session["UserId"] != null)
-            {
-                string strSelect = "Select * From Booking Where UserId=@UserId";
-                SqlCommand cmdSelect = new SqlCommand(strSelect, con);
-                cmdSelect.Parameters.AddWithValue("@UserId", Session["UserId"].ToString());
-                SqlDataReader dtrOrders = cmdSelect.ExecuteReader();
-                string bookingid = "";
-                int found = 0;
-                while (dtrOrders.Read())
-                {
-                    if (dtrOrders["PaymentCard"] == DBNull.Value || string.IsNullOrEmpty(dtrOrders["PaymentCard"].ToString()))
-                    {
-                        bookingid = dtrOrders["BookingId"].ToString();
-                        found++;
-                    }
-                }
-                dtrOrders.Close();
-
-                if (!string.IsNullOrEmpty(bookingid))
-                {
-                    List<string> seatIds = new List<string>();
-
-                    string selectSeat = "Select SeatId From BookingSeat Where BookingId=@BookingId";
-                    SqlCommand cmdselectSeat = new SqlCommand(selectSeat, con);
-                    cmdselectSeat.Parameters.AddWithValue("@BookingId", bookingid);
-                    SqlDataReader dtrSeat = cmdselectSeat.ExecuteReader();
-
-                    while (dtrSeat.Read())
-                    {
-                        string seatId = dtrSeat["SeatId"].ToString();
-                        seatIds.Add(seatId);
-                    }
-
-                    dtrSeat.Close();
-
-                    string[] seatIdArray = seatIds.ToArray();
-                    foreach (string seatId in seatIdArray)
-                    {
-                        string strUpdate = "UPDATE Seats SET IsAvailable = @IsAvailable WHERE SeatID = @SeatID AND ShowTimeId = @ShowTimeId";
-                        SqlCommand cmdUpdate = new SqlCommand(strUpdate, con);
-                        cmdUpdate.Parameters.AddWithValue("@IsAvailable", true);
-                        cmdUpdate.Parameters.AddWithValue("@SeatID", seatId);
-                        cmdUpdate.Parameters.AddWithValue("@ShowTimeId", Session["selectedSTID"].ToString());
-                        cmdUpdate.ExecuteNonQuery();
-                    }
-                }
-            }
             con.Close();
 
             if (!string.IsNullOrEmpty(selectedShowTime))
@@ -258,30 +212,24 @@ namespace Movie_Ticketing_System
 
 
                     }
-                    String nextBookingSeatId = Guid.NewGuid().ToString();
-                    string strInsert2 = "INSERT INTO BookingSeat (BookingSeatId, BookingId, SeatId) VALUES (@BookingSeatId, @BookingId, @SeatId)";
-                    SqlCommand cmdAddSeat = new SqlCommand(strInsert2, con);
-                    cmdAddSeat.Parameters.AddWithValue("@BookingSeatId", nextBookingSeatId);
-                    cmdAddSeat.Parameters.AddWithValue("@BookingId", bookingid);
-                    cmdAddSeat.Parameters.AddWithValue("@SeatId", seatId);
-                    cmdAddSeat.ExecuteNonQuery();
-
-                    /*                    Button seatButton = e.Item.FindControl("SeatButton") as Button;
-                                        seatButton.CssClass = "seat-selected";*/
-
-
-                    string strUpdate = "UPDATE Seats SET IsAvailable = @IsAvailable WHERE SeatID = @SeatID AND ShowTimeId = @ShowTimeId";
-                    SqlCommand cmdUpdate = new SqlCommand(strUpdate, con);
-                    cmdUpdate.Parameters.AddWithValue("@IsAvailable", false);
-                    cmdUpdate.Parameters.AddWithValue("@SeatID", seatId);
-                    cmdUpdate.Parameters.AddWithValue("@ShowTimeId", Session["selectedSTID"].ToString());
-                    cmdUpdate.ExecuteNonQuery();
-
-
-                    int n = cmdUpdate.ExecuteNonQuery();
+                    // Take the seat only if it's still free, and start its hold (HeldAt) in the same step
+                    string strTakeSeat = @"SET XACT_ABORT ON;
+                        BEGIN TRANSACTION;
+                        UPDATE Seats SET IsAvailable = 0 WHERE SeatID = @SeatID AND ShowTimeId = @ShowTimeId AND IsAvailable = 1;
+                        IF @@ROWCOUNT = 1
+                            INSERT INTO BookingSeat (BookingSeatId, BookingId, SeatId, HeldAt) VALUES (@BookingSeatId, @BookingId, @SeatID, GETDATE());
+                        COMMIT;";
+                    SqlCommand cmdTakeSeat = new SqlCommand(strTakeSeat, con);
+                    cmdTakeSeat.Parameters.AddWithValue("@SeatID", seatId);
+                    cmdTakeSeat.Parameters.AddWithValue("@ShowTimeId", Session["selectedSTID"].ToString());
+                    cmdTakeSeat.Parameters.AddWithValue("@BookingSeatId", Guid.NewGuid().ToString());
+                    cmdTakeSeat.Parameters.AddWithValue("@BookingId", bookingid);
+                    int n = cmdTakeSeat.ExecuteNonQuery();
 
                     string seatNumber = ((Button)e.CommandSource).Text;
-                    string message = n > 0 ? "Seat " + seatNumber + " is added to your cart." : "Something went wrong. Please try again.";
+                    string message = n > 0
+                        ? "Seat " + seatNumber + " is added to your cart. It's held for " + SeatHold.HoldMinutes + " minutes, so pay before then."
+                        : "Sorry, seat " + seatNumber + " was just taken. Please pick another one.";
                     ClientScript.RegisterStartupScript(GetType(), "seatResult", "alert(" + HttpUtility.JavaScriptStringEncode(message, true) + ");", true);
 
                     BindSeatData();

@@ -68,6 +68,7 @@
     <form id="form1" runat="server">
         <div class="page">
             <h1 class="page-title">Cart</h1>
+            <asp:Label ID="lblHold" runat="server" CssClass="hold-note"></asp:Label>
 
             <h2 class="section-title">Tickets <span class="count">(<asp:Label ID="lblTotalSeat" runat="server" Text="[lblTotalSeat]"></asp:Label>)</span></h2>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="BookingSeatId" DataSourceID="SqlDataSource1" GridLines="None" CssClass="data-table cart-table">
@@ -91,7 +92,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="">
                         <ItemTemplate>
-                            <asp:ImageButton ID="cmdDelete" runat="server" CssClass="remove-btn" AlternateText="Remove" BookingSeatId='<%# Eval("BookingSeatId") %>' OnClick="cmdDelete_Click" OnClientClick="return confirm('Sure to remove from cart? This action cannot be undone.');" ImageUrl="~/images/deleteIcon.png" />
+                            <asp:ImageButton ID="cmdDelete" runat="server" CssClass="remove-btn" AlternateText="Remove" BookingSeatID='<%# Eval("BookingSeatId") %>' OnClick="cmdDelete_Click" OnClientClick="return confirm('Sure to remove from cart? This action cannot be undone.');" ImageUrl="~/images/deleteIcon.png" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

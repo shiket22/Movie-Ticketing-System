@@ -80,6 +80,7 @@
     <Content Include="BookingMovie.aspx" />
     <Content Include="css\admin.css" />
     <Content Include="css\site.css" />
+    <Content Include="js\hold-timer.js" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="FnB.aspx" />
     <Content Include="Home.aspx" />
@@ -284,6 +285,7 @@
     </Compile>
     <Compile Include="AdminPage.cs" />
     <Compile Include="PasswordHasher.cs" />
+    <Compile Include="SeatHold.cs" />
     <Compile Include="Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

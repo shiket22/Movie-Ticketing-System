@@ -283,6 +283,25 @@
             justify-content: flex-end;
         }
 
+        .hold-note {
+            display: block;
+            margin-bottom: 24px;
+            padding: 10px 14px;
+            border: 1px solid #5a4a26;
+            border-radius: var(--radius);
+            background: rgba(217, 164, 65, 0.08);
+            font-size: var(--fs-14);
+        }
+
+            .hold-note:empty {
+                display: none;
+            }
+
+            .hold-note strong {
+                color: var(--azure);
+                font-variant-numeric: tabular-nums;
+            }
+
         .transaction-detail-box {
             padding: 40px var(--px);
             margin-bottom: auto; 
@@ -455,6 +474,7 @@
                 <section class="transaction">
                     <div class="transaction-detail-box">
                         <h2 class="section-heading">Transaction Detail</h2>
+                        <asp:Label ID="lblHold" runat="server" CssClass="hold-note"></asp:Label>
 
                         <div class="transaction-card">
                             <div class="card">
@@ -504,7 +524,7 @@
         </main>
     </form>
 
-
+    <script src="js/hold-timer.js"></script>
 </body>
 </html>
 <script>

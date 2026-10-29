@@ -1,6 +1,7 @@
 -- Online Movie Ticketing System: database structure (SQL Server 2019 or later, LocalDB included)
--- Exported from the original database in 2026. The only change: [User].[Password] is nvarchar(128)
--- instead of nvarchar(50), because passwords are now stored as PBKDF2 hashes.
+-- Exported from the original database in 2026. Changes since then: [User].[Password] is nvarchar(128)
+-- instead of nvarchar(50), because passwords are now stored as PBKDF2 hashes, and [BookingSeat].[HeldAt]
+-- records when a seat was picked, so seats that aren't paid for within 5 minutes go back on sale (SeatHold.cs).
 -- [User].[UserId] and [BookingSeat].[BookingSeatId] are nvarchar(1000) keys, as in the original, so
 -- SQL Server warns that a key may exceed 900 bytes. The real values are short, so the warning is harmless.
 
@@ -109,6 +110,7 @@ CREATE TABLE [dbo].[BookingSeat] (
     [BookingSeatId] nvarchar(1000) NOT NULL,
     [BookingId] nvarchar(10) NOT NULL,
     [SeatId] nvarchar(10) NULL,
+    [HeldAt] datetime NULL,
     CONSTRAINT [PK_BookingSeat] PRIMARY KEY ([BookingSeatId])
 );
 GO

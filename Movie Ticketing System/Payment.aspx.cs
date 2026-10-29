@@ -16,7 +16,7 @@ namespace Movie_Ticketing_System
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            SeatHold.ReleaseExpired();
 
             if (!IsPostBack)
             {
@@ -92,6 +92,15 @@ namespace Movie_Ticketing_System
                     lblSubTotal.Text = String.Format("{0:0.00}", total) + "";
                     txtAmount.Text = String.Format("{0:0.00}", total) + "";
 
+                    // Remember how many seats are being paid for, so Submit can tell if any were released meanwhile
+                    string bookingId = Session["bookingid"].ToString();
+                    ViewState["SeatCount"] = SeatHold.SeatCount(bookingId);
+                    int seconds = SeatHold.SecondsLeft(bookingId);
+                    if (seconds >= 0)
+                    {
+                        lblHold.Text = "Seats held for <strong data-hold-seconds=\"" + seconds + "\">" + seconds / 60 + ":" + (seconds % 60).ToString("00") + "</strong>";
+                    }
+
                     con.Close();
 
                     if (total == 0)
@@ -111,6 +120,13 @@ namespace Movie_Ticketing_System
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            // The hold may have run out while the user was filling in the form
+            if (ViewState["SeatCount"] != null && SeatHold.SeatCount(Session["bookingid"].ToString()) < (int)ViewState["SeatCount"])
+            {
+                Response.Redirect("OrderCart.aspx?expired=1");
+                return;
+            }
+
             if (!txtAmount.Text.ToString().Equals("0.00"))
             {
                 con.Open();

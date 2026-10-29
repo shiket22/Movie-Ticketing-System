@@ -75,5 +75,6 @@
         </div>
         <p class="footer-note">&copy; 2024 SSC Cinema. A group project for BAIT2113 Web Application Development, not a real cinema.</p>
     </footer>
+    <script src="js/hold-timer.js"></script>
 </body>
 </html>
