@@ -1,0 +1,382 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B06EFEA2-2441-467E-9CFE-58A7DF4A0870}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Movie_Ticketing_System</RootNamespace>
+    <AssemblyName>Movie Ticketing System</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44357</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="addHall.aspx" />
+    <Content Include="addMovie.aspx" />
+    <Content Include="MaintainShowTime.aspx" />
+    <Content Include="updateHall.aspx" />
+    <Content Include="UpdateS.aspx" />
+    <Content Include="App_Data\MovieTicketingSystem.mdf" />
+    <Content Include="App_Data\MovieTicketingSystem_log.ldf">
+      <DependentUpon>MovieTicketingSystem.mdf</DependentUpon>
+    </Content>
+    <Content Include="BookingHistory.aspx" />
+    <Content Include="BookingMovie.aspx" />
+    <Content Include="css\admin.css" />
+    <Content Include="css\style.css" />
+    <Content Include="ErrorPage.aspx" />
+    <Content Include="FnB.aspx" />
+    <Content Include="Home.aspx" />
+    <Content Include="Images\add.png" />
+    <Content Include="Images\alien.png" />
+    <Content Include="Images\android-logo.png" />
+    <Content Include="Images\apple-logo.png" />
+    <Content Include="Images\article20.png" />
+    <Content Include="Images\Avatar.jpg" />
+    <Content Include="Images\background1.jpg" />
+    <Content Include="Images\background2.jpg" />
+    <Content Include="Images\CinameBackground1.jpg" />
+    <Content Include="Images\cinema.png" />
+    <Content Include="Images\CinemaBackGround.jpg" />
+    <Content Include="Images\cocacola.jpg" />
+    <Content Include="Images\coffee.jpeg" />
+    <Content Include="Images\deadpool.png" />
+    <Content Include="Images\deleteIcon.png" />
+    <Content Include="Images\despicableme.png" />
+    <Content Include="Images\Dune.png" />
+    <Content Include="Images\Extinction.jpeg" />
+    <Content Include="Images\Facebook-logo.png" />
+    <Content Include="Images\fantastic4.png" />
+    <Content Include="Images\Fighter.jpeg" />
+    <Content Include="Images\Garfield.png" />
+    <Content Include="Images\Ghostbuster.png" />
+    <Content Include="Images\GodzillaXKong.png" />
+    <Content Include="Images\GodzillaxKongTheNewEmpire.png" />
+    <Content Include="Images\huawei-logo.png" />
+    <Content Include="Images\if.png" />
+    <Content Include="Images\Imaginary.png" />
+    <Content Include="Images\insideout.png" />
+    <Content Include="Images\Instagram-logo.png" />
+    <Content Include="Images\ironman.jpg" />
+    <Content Include="Images\KungFuPanda.png" />
+    <Content Include="Images\minus.png" />
+    <Content Include="Images\MoneyNotEnough.png" />
+    <Content Include="Images\MovieKongFuPanda.jpg" />
+    <Content Include="Images\nowayup.png" />
+    <Content Include="Images\panda.jpg" />
+    <Content Include="Images\popcorn.jpg" />
+    <Content Include="Images\RoadHouse.jpeg" />
+    <Content Include="Images\spider.jpeg" />
+    <Content Include="Images\sprite.jpg" />
+    <Content Include="Images\SSC Logo.png" />
+    <Content Include="Images\tarot.png" />
+    <Content Include="Images\Thank.png" />
+    <Content Include="Images\twitter-logo.png" />
+    <Content Include="Images\updateIcon.png" />
+    <Content Include="Images\wildrobot.png" />
+    <Content Include="Images\YOLO.png" />
+    <Content Include="LoginRegister.aspx" />
+    <Content Include="MaintainHall.aspx" />
+    <Content Include="MaintainMovie.aspx" />
+    <Content Include="MovieComingSoon.aspx" />
+    <Content Include="MovieDetails.aspx" />
+    <Content Include="MovieDetailsComingSoon.aspx" />
+    <Content Include="MovieList.aspx" />
+    <Content Include="OrderCart.aspx" />
+    <Content Include="Payment.aspx" />
+    <Content Include="searchResult.aspx" />
+    <Content Include="styles.css" />
+    <Content Include="Summary.aspx" />
+    <Content Include="UpdateMovie.aspx" />
+    <Content Include="UpdateShowTime.aspx" />
+    <Content Include="UserProfile.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="addHall.aspx.cs">
+      <DependentUpon>addHall.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addHall.aspx.designer.cs">
+      <DependentUpon>addHall.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addMovie.aspx.cs">
+      <DependentUpon>addMovie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addMovie.aspx.designer.cs">
+      <DependentUpon>addMovie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainShowTime.aspx.cs">
+      <DependentUpon>MaintainShowTime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MaintainShowTime.aspx.designer.cs">
+      <DependentUpon>MaintainShowTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="updateHall.aspx.cs">
+      <DependentUpon>updateHall.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updateHall.aspx.designer.cs">
+      <DependentUpon>updateHall.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateS.aspx.cs">
+      <DependentUpon>UpdateS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateS.aspx.designer.cs">
+      <DependentUpon>UpdateS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookingHistory.aspx.cs">
+      <DependentUpon>BookingHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookingHistory.aspx.designer.cs">
+      <DependentUpon>BookingHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookingMovie.aspx.cs">
+      <DependentUpon>BookingMovie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookingMovie.aspx.designer.cs">
+      <DependentUpon>BookingMovie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FnB.aspx.cs">
+      <DependentUpon>FnB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FnB.aspx.designer.cs">
+      <DependentUpon>FnB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginRegister.aspx.cs">
+      <DependentUpon>LoginRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginRegister.aspx.designer.cs">
+      <DependentUpon>LoginRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainHall.aspx.cs">
+      <DependentUpon>MaintainHall.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MaintainHall.aspx.designer.cs">
+      <DependentUpon>MaintainHall.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainMovie.aspx.cs">
+      <DependentUpon>MaintainMovie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MaintainMovie.aspx.designer.cs">
+      <DependentUpon>MaintainMovie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MovieComingSoon.aspx.cs">
+      <DependentUpon>MovieComingSoon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MovieComingSoon.aspx.designer.cs">
+      <DependentUpon>MovieComingSoon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MovieDetails.aspx.cs">
+      <DependentUpon>MovieDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MovieDetails.aspx.designer.cs">
+      <DependentUpon>MovieDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MovieDetailsComingSoon.aspx.cs">
+      <DependentUpon>MovieDetailsComingSoon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MovieDetailsComingSoon.aspx.designer.cs">
+      <DependentUpon>MovieDetailsComingSoon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MovieList.aspx.cs">
+      <DependentUpon>MovieList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MovieList.aspx.designer.cs">
+      <DependentUpon>MovieList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MovieTicketingSystem.Master.cs">
+      <DependentUpon>MovieTicketingSystem.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MovieTicketingSystem.Master.designer.cs">
+      <DependentUpon>MovieTicketingSystem.Master</DependentUpon>
+    </Compile>
+    <Compile Include="OrderCart.aspx.cs">
+      <DependentUpon>OrderCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderCart.aspx.designer.cs">
+      <DependentUpon>OrderCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordHasher.cs" />
+    <Compile Include="Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="searchResult.aspx.cs">
+      <DependentUpon>searchResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="searchResult.aspx.designer.cs">
+      <DependentUpon>searchResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Summary.aspx.cs">
+      <DependentUpon>Summary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Summary.aspx.designer.cs">
+      <DependentUpon>Summary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateMovie.aspx.cs">
+      <DependentUpon>UpdateMovie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateMovie.aspx.designer.cs">
+      <DependentUpon>UpdateMovie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateShowTime.aspx.cs">
+      <DependentUpon>UpdateShowTime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateShowTime.aspx.designer.cs">
+      <DependentUpon>UpdateShowTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfile.aspx.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserProfile.aspx.designer.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MovieTicketingSystem.Master" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Web.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="admin\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56686</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44357/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

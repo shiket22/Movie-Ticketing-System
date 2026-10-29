@@ -1,0 +1,173 @@
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+
+
+
+* {
+    font-family: "Ubuntu", sans-serif;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+body {
+    background: #e8edf5;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper .top_navbar {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    position: fixed;
+    top: 0;
+}
+
+    .wrapper .top_navbar .logo {
+        width: 250px;
+        height: 100%;
+        background: #3421c0;
+        border-bottom: 1px solid #22119d;
+    }
+
+        .wrapper .top_navbar .logo a {
+            display: block;
+            text-align: center;
+            font-size: 20px;
+            font-family: 'Montserrat Subrayada',sans-serif;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+    .wrapper .top_navbar .top_menu {
+        width: calc(100% - 250px);
+        height: 100%;
+        background: #fff;
+        padding: 0 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .wrapper .top_navbar .top_menu .home_link a {
+            display: block;
+            background: #3421c0;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 3px;
+        }
+
+            .wrapper .top_navbar .top_menu .home_link a:hover {
+                background: #5343c7
+            }
+
+.wrapper .sidebar_menu {
+    position: fixed;
+    top: 65px;
+    background: #3421c0;
+    width: 250px;
+    height: 100%;
+    transition: all 0,3s linear;
+}
+
+    .wrapper .sidebar_menu .inner__sidebar_menu {
+        position: relative;
+        padding-top: 60px;
+    }
+
+    .wrapper .sidebar_menu ul li a {
+        color: #7467d3;
+        font-size: 18px;
+        padding: 20px 35px;
+        display: block;
+        white-space: nowrap;
+    }
+
+        .wrapper .sidebar_menu ul li a span {
+            display: inline-block;
+        }
+
+        .wrapper .sidebar_menu ul li a .icon {
+            margin-right: 8px;
+        }
+
+        .wrapper .sidebar_menu ul li a .hover {
+            background: #5343c7;
+            color: #fff;
+        }
+
+        .wrapper .sidebar_menu ul li a .active {
+            background: #22119d;
+            color: #fff;
+        }
+
+    .wrapper .sidebar_menu .hamburger {
+        position: absolute;
+        top: 5px;
+        right: -25px;
+        width: 50px;
+        height: 50px;
+        background: #e8edf5;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+        .wrapper .sidebar_menu .hamburger .inner_hamburger,
+        .wrapper .sidebar_menu .hamburger .inner_hamburger .arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .wrapper .sidebar_menu .hamburger .inner_hamburger {
+            width: 40px;
+            border-radius: 50%;
+            height: 40px;
+            background: #3431c0;
+        }
+
+            .wrapper .sidebar_menu .hamburger .inner_hamburger .arrow {
+                color: #fff;
+                font-size: 20px;
+            }
+
+.wrapper .container {
+    width: calc(100%-250px);
+    margin-left: 250px;
+    margin-top: 65px;
+    padding: 25px 40px;
+    transition: all 0.3s linear;
+}
+
+    .wrapper .container .item_wrap .item:first-child {
+        margin-right: 20px;
+    }
+
+.wrapper.active .sidebar_menu {
+    width: 100px;
+}
+
+.wrapper.active .hamburger .fa-long-arrow-alt-right {
+    display: block !important;
+}
+
+.wrapper.active .hamburger .fa-long-arrow-alt-left {
+    display: none;
+}
+
+.wrapper.active .sidebar_menu ul li a .list {
+    display: none;
+}
+
+.wrapper.active .container {
+    width: calc(100% - 100px);
+    margin-left: 100px;
+}

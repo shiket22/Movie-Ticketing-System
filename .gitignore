@@ -1,0 +1,22 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build output
+[Bb]in/
+[Oo]bj/
+*.pdb
+
+# NuGet packages (Visual Studio restores them on build)
+packages/
+*.nupkg
+
+# The database is created from the scripts in Database/. Never commit a database with real accounts.
+App_Data/*.mdf
+App_Data/*.ldf
+
+# Large media
+*.mp4
